@@ -12,10 +12,6 @@
     <version>1.0</version>
     <name>FileCenter</name>
 
-    <properties>
-        <java.version>1.8</java.version>
-    </properties>
-
     <dependencies>
     </dependencies>
 

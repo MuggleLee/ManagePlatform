@@ -10,7 +10,7 @@
     <groupId>com.hao</groupId>
     <artifactId>userservice</artifactId>
     <version>1.0</version>
-    <name>Userservice</name>
+    <name>UserService</name>
     <packaging>jar</packaging>
 
     <dependencies>
