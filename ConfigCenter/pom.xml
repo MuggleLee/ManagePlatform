@@ -13,9 +13,18 @@
     <name>ConfigCenter</name>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-config-server</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+        </dependency>
     </dependencies>
 
     <build>
+        <finalName>${project.artifactId}</finalName><!--打jar包去掉版本号-->
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

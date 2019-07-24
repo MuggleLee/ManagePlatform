@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: ConfigCenter
+  profiles:
+    active: native
+  cloud:
+    config:
+      server:
+        native:
+          search-locations: classpath:/configs/{profile}
+        git:
+          uri: https://github.com/MuggleLee/microservice-config
+          username: MuggleLee
+          password: 369874125lihao.
+          default-label: master #仓库的分支
+          force-pull: true #强制拉取配置，解决手动修改本地缓存配置后，无法拉取最新配置的问题
+          search-paths: '{profile}'
+          basedir: /root/microservice/config/ #本地缓存地址
+eureka:
+  client:
+    service-url:
+      dafalutZone: http://localhost:8761/eureka/
+    registry-fetch-interval-seconds: 5
+  instance:
+    #服务失效的时间
+    lease-expiration-duration-in-seconds: 15
+    #服务续约任务（心跳）的调用间隔
+    lease-renewal-interval-in-seconds: 5
+    #不使用主机名来定义注册中心的地址，而使用IP地址的形式
+    prefer-ip-address: true
+    #将Instance ID设置成IP:端口的形式
+    instance-id: ${spring.application.name}:${server.port}
+server:
+  port: 8888
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude: "*" #默认只公开了/health和/info端点，设置 * 为暴露所有的端点
+  endpoint:
+    health:
+      show-details: always #默认不显示健康信息
+logging:
+  level:
+    root: info
+  file: logs/${spring.application.name}.log

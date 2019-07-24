@@ -1,0 +1,129 @@
+2019-07-24 22:42:17.508  INFO [UserService,,,] 4207 --- [main] c.h.userservice.UserserviceApplication   : No active profile set, falling back to default profiles: default
+2019-07-24 22:42:17.522  INFO [UserService,,,] 4207 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@2c07545f: startup date [Wed Jul 24 22:42:17 CST 2019]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@13c9d689
+2019-07-24 22:42:17.690 ERROR [UserService,,,] 4207 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Unable to read meta-data for class com.cloud.log.autoconfigure.LogAutoConfiguration
+	at org.springframework.boot.autoconfigure.AutoConfigurationSorter$AutoConfigurationClass.getAnnotationMetadata(AutoConfigurationSorter.java:245) ~[spring-boot-autoconfigure-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.autoconfigure.AutoConfigurationSorter$AutoConfigurationClass.getOrder(AutoConfigurationSorter.java:214) ~[spring-boot-autoconfigure-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.autoconfigure.AutoConfigurationSorter$AutoConfigurationClass.access$000(AutoConfigurationSorter.java:155) ~[spring-boot-autoconfigure-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.autoconfigure.AutoConfigurationSorter.lambda$getInPriorityOrder$0(AutoConfigurationSorter.java:62) ~[spring-boot-autoconfigure-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at java.util.TimSort.countRunAndMakeAscending(TimSort.java:355) ~[na:1.8.0_60]
+	at java.util.TimSort.sort(TimSort.java:234) ~[na:1.8.0_60]
+	at java.util.Arrays.sort(Arrays.java:1512) ~[na:1.8.0_60]
+	at java.util.ArrayList.sort(ArrayList.java:1454) ~[na:1.8.0_60]
+	at org.springframework.boot.autoconfigure.AutoConfigurationSorter.getInPriorityOrder(AutoConfigurationSorter.java:61) ~[spring-boot-autoconfigure-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.autoconfigure.AutoConfigurationImportSelector$AutoConfigurationGroup.sortAutoConfigurations(AutoConfigurationImportSelector.java:408) ~[spring-boot-autoconfigure-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.autoconfigure.AutoConfigurationImportSelector$AutoConfigurationGroup.selectImports(AutoConfigurationImportSelector.java:394) ~[spring-boot-autoconfigure-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser$DeferredImportSelectorGrouping.getImports(ConfigurationClassParser.java:831) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.processDeferredImportSelectors(ConfigurationClassParser.java:563) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:188) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:316) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:233) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:271) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:91) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:398) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:330) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1258) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1246) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at com.hao.userservice.UserserviceApplication.main(UserserviceApplication.java:14) [classes/:na]
+Caused by: java.io.FileNotFoundException: class path resource [com/cloud/log/autoconfigure/LogAutoConfiguration.class] cannot be opened because it does not exist
+	at org.springframework.core.io.ClassPathResource.getInputStream(ClassPathResource.java:180) ~[spring-core-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.core.type.classreading.SimpleMetadataReader.<init>(SimpleMetadataReader.java:51) ~[spring-core-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.core.type.classreading.SimpleMetadataReaderFactory.getMetadataReader(SimpleMetadataReaderFactory.java:103) ~[spring-core-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.boot.type.classreading.ConcurrentReferenceCachingMetadataReaderFactory.createMetadataReader(ConcurrentReferenceCachingMetadataReaderFactory.java:88) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.type.classreading.ConcurrentReferenceCachingMetadataReaderFactory.getMetadataReader(ConcurrentReferenceCachingMetadataReaderFactory.java:75) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.core.type.classreading.SimpleMetadataReaderFactory.getMetadataReader(SimpleMetadataReaderFactory.java:81) ~[spring-core-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.boot.autoconfigure.AutoConfigurationSorter$AutoConfigurationClass.getAnnotationMetadata(AutoConfigurationSorter.java:241) ~[spring-boot-autoconfigure-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	... 26 common frames omitted
+
+2019-07-24 22:42:17.691  INFO [UserService,,,] 4207 --- [main] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@2c07545f: startup date [Wed Jul 24 22:42:17 CST 2019]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@13c9d689
+2019-07-24 23:54:34.965  INFO [UserService,,,] 4691 --- [main] c.h.userservice.UserserviceApplication   : No active profile set, falling back to default profiles: default
+2019-07-24 23:54:34.983  INFO [UserService,,,] 4691 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@2c4d1ac: startup date [Wed Jul 24 23:54:34 CST 2019]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@7c7a06ec
+2019-07-24 23:54:35.175 ERROR [UserService,,,] 4691 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Unable to read meta-data for class com.cloud.log.autoconfigure.LogAutoConfiguration
+	at org.springframework.boot.autoconfigure.AutoConfigurationSorter$AutoConfigurationClass.getAnnotationMetadata(AutoConfigurationSorter.java:245) ~[spring-boot-autoconfigure-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.autoconfigure.AutoConfigurationSorter$AutoConfigurationClass.getOrder(AutoConfigurationSorter.java:214) ~[spring-boot-autoconfigure-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.autoconfigure.AutoConfigurationSorter$AutoConfigurationClass.access$000(AutoConfigurationSorter.java:155) ~[spring-boot-autoconfigure-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.autoconfigure.AutoConfigurationSorter.lambda$getInPriorityOrder$0(AutoConfigurationSorter.java:62) ~[spring-boot-autoconfigure-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at java.util.TimSort.countRunAndMakeAscending(TimSort.java:355) ~[na:1.8.0_60]
+	at java.util.TimSort.sort(TimSort.java:234) ~[na:1.8.0_60]
+	at java.util.Arrays.sort(Arrays.java:1512) ~[na:1.8.0_60]
+	at java.util.ArrayList.sort(ArrayList.java:1454) ~[na:1.8.0_60]
+	at org.springframework.boot.autoconfigure.AutoConfigurationSorter.getInPriorityOrder(AutoConfigurationSorter.java:61) ~[spring-boot-autoconfigure-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.autoconfigure.AutoConfigurationImportSelector$AutoConfigurationGroup.sortAutoConfigurations(AutoConfigurationImportSelector.java:408) ~[spring-boot-autoconfigure-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.autoconfigure.AutoConfigurationImportSelector$AutoConfigurationGroup.selectImports(AutoConfigurationImportSelector.java:394) ~[spring-boot-autoconfigure-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser$DeferredImportSelectorGrouping.getImports(ConfigurationClassParser.java:831) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.processDeferredImportSelectors(ConfigurationClassParser.java:563) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:188) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:316) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:233) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:271) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:91) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:398) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:330) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1258) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1246) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at com.hao.userservice.UserserviceApplication.main(UserserviceApplication.java:14) [classes/:na]
+Caused by: java.io.FileNotFoundException: class path resource [com/cloud/log/autoconfigure/LogAutoConfiguration.class] cannot be opened because it does not exist
+	at org.springframework.core.io.ClassPathResource.getInputStream(ClassPathResource.java:180) ~[spring-core-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.core.type.classreading.SimpleMetadataReader.<init>(SimpleMetadataReader.java:51) ~[spring-core-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.core.type.classreading.SimpleMetadataReaderFactory.getMetadataReader(SimpleMetadataReaderFactory.java:103) ~[spring-core-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.boot.type.classreading.ConcurrentReferenceCachingMetadataReaderFactory.createMetadataReader(ConcurrentReferenceCachingMetadataReaderFactory.java:88) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.type.classreading.ConcurrentReferenceCachingMetadataReaderFactory.getMetadataReader(ConcurrentReferenceCachingMetadataReaderFactory.java:75) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.core.type.classreading.SimpleMetadataReaderFactory.getMetadataReader(SimpleMetadataReaderFactory.java:81) ~[spring-core-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.boot.autoconfigure.AutoConfigurationSorter$AutoConfigurationClass.getAnnotationMetadata(AutoConfigurationSorter.java:241) ~[spring-boot-autoconfigure-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	... 26 common frames omitted
+
+2019-07-24 23:54:35.177  INFO [UserService,,,] 4691 --- [main] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@2c4d1ac: startup date [Wed Jul 24 23:54:34 CST 2019]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@7c7a06ec
+2019-07-24 23:55:00.801  INFO [UserService,,,] 4696 --- [main] c.h.userservice.UserserviceApplication   : No active profile set, falling back to default profiles: default
+2019-07-24 23:55:00.819  INFO [UserService,,,] 4696 --- [main] ConfigServletWebServerApplicationContext : Refreshing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4b41dd5c: startup date [Wed Jul 24 23:55:00 CST 2019]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@55182842
+2019-07-24 23:55:01.009 ERROR [UserService,,,] 4696 --- [main] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Unable to read meta-data for class com.cloud.log.autoconfigure.LogAutoConfiguration
+	at org.springframework.boot.autoconfigure.AutoConfigurationSorter$AutoConfigurationClass.getAnnotationMetadata(AutoConfigurationSorter.java:245) ~[spring-boot-autoconfigure-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.autoconfigure.AutoConfigurationSorter$AutoConfigurationClass.getOrder(AutoConfigurationSorter.java:214) ~[spring-boot-autoconfigure-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.autoconfigure.AutoConfigurationSorter$AutoConfigurationClass.access$000(AutoConfigurationSorter.java:155) ~[spring-boot-autoconfigure-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.autoconfigure.AutoConfigurationSorter.lambda$getInPriorityOrder$0(AutoConfigurationSorter.java:62) ~[spring-boot-autoconfigure-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at java.util.TimSort.countRunAndMakeAscending(TimSort.java:355) ~[na:1.8.0_60]
+	at java.util.TimSort.sort(TimSort.java:234) ~[na:1.8.0_60]
+	at java.util.Arrays.sort(Arrays.java:1512) ~[na:1.8.0_60]
+	at java.util.ArrayList.sort(ArrayList.java:1454) ~[na:1.8.0_60]
+	at org.springframework.boot.autoconfigure.AutoConfigurationSorter.getInPriorityOrder(AutoConfigurationSorter.java:61) ~[spring-boot-autoconfigure-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.autoconfigure.AutoConfigurationImportSelector$AutoConfigurationGroup.sortAutoConfigurations(AutoConfigurationImportSelector.java:408) ~[spring-boot-autoconfigure-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.autoconfigure.AutoConfigurationImportSelector$AutoConfigurationGroup.selectImports(AutoConfigurationImportSelector.java:394) ~[spring-boot-autoconfigure-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser$DeferredImportSelectorGrouping.getImports(ConfigurationClassParser.java:831) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.processDeferredImportSelectors(ConfigurationClassParser.java:563) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassParser.parse(ConfigurationClassParser.java:188) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:316) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:233) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:271) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:91) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:694) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:532) ~[spring-context-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:140) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:762) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:398) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:330) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1258) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1246) [spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at com.hao.userservice.UserserviceApplication.main(UserserviceApplication.java:14) [classes/:na]
+Caused by: java.io.FileNotFoundException: class path resource [com/cloud/log/autoconfigure/LogAutoConfiguration.class] cannot be opened because it does not exist
+	at org.springframework.core.io.ClassPathResource.getInputStream(ClassPathResource.java:180) ~[spring-core-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.core.type.classreading.SimpleMetadataReader.<init>(SimpleMetadataReader.java:51) ~[spring-core-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.core.type.classreading.SimpleMetadataReaderFactory.getMetadataReader(SimpleMetadataReaderFactory.java:103) ~[spring-core-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.boot.type.classreading.ConcurrentReferenceCachingMetadataReaderFactory.createMetadataReader(ConcurrentReferenceCachingMetadataReaderFactory.java:88) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.boot.type.classreading.ConcurrentReferenceCachingMetadataReaderFactory.getMetadataReader(ConcurrentReferenceCachingMetadataReaderFactory.java:75) ~[spring-boot-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	at org.springframework.core.type.classreading.SimpleMetadataReaderFactory.getMetadataReader(SimpleMetadataReaderFactory.java:81) ~[spring-core-5.0.8.RELEASE.jar:5.0.8.RELEASE]
+	at org.springframework.boot.autoconfigure.AutoConfigurationSorter$AutoConfigurationClass.getAnnotationMetadata(AutoConfigurationSorter.java:241) ~[spring-boot-autoconfigure-2.0.4.RELEASE.jar:2.0.4.RELEASE]
+	... 26 common frames omitted
+
+2019-07-24 23:55:01.011  INFO [UserService,,,] 4696 --- [main] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4b41dd5c: startup date [Wed Jul 24 23:55:00 CST 2019]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@55182842

@@ -7,21 +7,15 @@
         <artifactId>microservice</artifactId>
         <version>1.0</version>
     </parent>
-    <groupId>com.hao</groupId>
     <artifactId>common-model</artifactId>
     <version>1.0</version>
     <name>CommonModel</name>
+    <packaging>jar</packaging>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+        </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
-
 </project>

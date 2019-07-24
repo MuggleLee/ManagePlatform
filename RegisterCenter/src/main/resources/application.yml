@@ -1,0 +1,41 @@
+spring:
+  application:
+    name: RegisterCenter
+server:
+  port: 8761
+eureka:
+  server:
+    #关闭注册中心的保护机制
+    enable-self-preservation: true
+    #清理无效节点的时间间隔
+    eviction-interval-timer-in-ms: 30000
+  client:
+    service-url:
+      dafalueZone: http://localhost:${server.port}/eureka/
+    #启动服务注册
+    register-with-eureka: true
+    #检索服务
+    fetch-registry: false
+    #从Eureka服务器端获取注册信息的间隔时间
+    registry-fetch-interval-seconds: 3
+  instance:
+    #服务失效的时间
+    lease-expiration-duration-in-seconds: 15
+    #服务续约任务（心跳）的调用间隔
+    lease-renewal-interval-in-seconds: 5
+    #不使用主机名来定义注册中心的地址，而使用IP地址的形式
+    prefer-ip-address: true
+    #将Instance ID设置成IP:端口的形式
+    instance-id: ${spring.application.name}:${server.port}
+management:
+  endpoints:
+    web:
+      exposure:
+        exclude: "*" #默认只公开了/health和/info端点，设置 * 为暴露所有的端点
+  endpoint:
+    health:
+      show-details: always #默认不显示健康信息
+logging:
+  level:
+    root: info
+  file: logs/${spring.application.name}.log
