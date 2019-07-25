@@ -1,4 +1,4 @@
-package com.hao.commonunits.Utils;
+package com.hao.commonunits.utils;
 import com.alibaba.fastjson.JSONObject;
 import com.hao.commonmodel.Model.User.LoginAppUser;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

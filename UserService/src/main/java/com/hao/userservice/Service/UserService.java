@@ -17,7 +17,7 @@ public interface UserService {
 
     void updateAppUser(AppUser appUser);
 
-    LoginAppUser findByUserName(String userName);
+    AppUser findByUserName(String userName);
 
     AppUser findById(Long id);
 
