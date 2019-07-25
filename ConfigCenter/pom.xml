@@ -10,7 +10,6 @@
     <groupId>com.hao</groupId>
     <artifactId>configcenter</artifactId>
     <version>1.0</version>
-    <name>ConfigCenter</name>
 
     <dependencies>
         <dependency>

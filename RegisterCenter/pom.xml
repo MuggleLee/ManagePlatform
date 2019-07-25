@@ -10,7 +10,6 @@
     <groupId>com.hao</groupId>
     <artifactId>registercenter</artifactId>
     <version>1.0</version>
-    <name>RegisterCenter</name>
 
     <dependencies>
         <dependency>
