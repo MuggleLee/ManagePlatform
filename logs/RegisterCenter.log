@@ -831,3 +831,20 @@
 2019-07-24 23:56:10.455  INFO 4685 --- [Thread-13] c.n.e.r.PeerAwareInstanceRegistryImpl    : Changing status to UP
 2019-07-24 23:56:10.463  INFO 4685 --- [Thread-13] e.s.EurekaServerInitializerConfiguration : Started Eureka Server
 2019-07-24 23:56:40.457  INFO 4685 --- [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2019-07-24 23:57:10.461  INFO 4685 --- [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 4ms
+2019-07-24 23:57:16.215  INFO 4685 --- [Thread-15] ConfigServletWebServerApplicationContext : Closing org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext@4241e0f4: startup date [Wed Jul 24 23:54:06 CST 2019]; parent: org.springframework.context.annotation.AnnotationConfigApplicationContext@72057ecf
+2019-07-24 23:57:16.216  INFO 4685 --- [Thread-15] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application RegisterCenter with eureka with status DOWN
+2019-07-24 23:57:16.216  WARN 4685 --- [Thread-15] com.netflix.discovery.DiscoveryClient    : Saw local status change event StatusChangeEvent [timestamp=1563983836216, current=DOWN, previous=UP]
+2019-07-24 23:57:16.216  INFO 4685 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REGISTERCENTER/RegisterCenter:8761: registering service...
+2019-07-24 23:57:16.217  INFO 4685 --- [Thread-15] o.s.c.support.DefaultLifecycleProcessor  : Stopping beans in phase 0
+2019-07-24 23:57:16.218  INFO 4685 --- [Thread-15] c.n.eureka.DefaultEurekaServerContext    : Shutting down ...
+2019-07-24 23:57:16.223  INFO 4685 --- [Thread-15] c.n.eureka.DefaultEurekaServerContext    : Shut down
+2019-07-24 23:57:16.224  INFO 4685 --- [http-nio-8761-exec-2] c.n.e.registry.AbstractInstanceRegistry  : Registered instance REGISTERCENTER/RegisterCenter:8761 with status DOWN (replication=false)
+2019-07-24 23:57:16.225  INFO 4685 --- [Thread-15] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
+2019-07-24 23:57:16.225  INFO 4685 --- [Thread-15] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans
+2019-07-24 23:57:16.225  INFO 4685 --- [DiscoveryClient-InstanceInfoReplicator-0] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REGISTERCENTER/RegisterCenter:8761 - registration status: 204
+2019-07-24 23:57:16.227  INFO 4685 --- [Thread-15] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
+2019-07-24 23:57:19.232  INFO 4685 --- [Thread-15] com.netflix.discovery.DiscoveryClient    : Unregistering ...
+2019-07-24 23:57:19.238  INFO 4685 --- [http-nio-8761-exec-3] c.n.e.registry.AbstractInstanceRegistry  : Cancelled instance REGISTERCENTER/RegisterCenter:8761 (replication=false)
+2019-07-24 23:57:19.239  INFO 4685 --- [Thread-15] com.netflix.discovery.DiscoveryClient    : DiscoveryClient_REGISTERCENTER/RegisterCenter:8761 - deregister  status: 200
+2019-07-24 23:57:19.248  INFO 4685 --- [Thread-15] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
