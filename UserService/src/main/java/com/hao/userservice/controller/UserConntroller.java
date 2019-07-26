@@ -81,9 +81,10 @@ public class UserConntroller {
     /**
      * 修改密码
      */
-    @LogAnnotation(module = "修改密码")
+//    @LogAnnotation(module = "修改密码")
     @PutMapping(value = "/users/password",params = {"oldPassword","newPassword"})
     public void updatePassword(String oldPassword,String newPassword){
+        System.out.println("Test");
         if(StringUtils.isBlank(oldPassword)){
             throw new IllegalArgumentException("旧密码不能为空");
         }
@@ -91,7 +92,9 @@ public class UserConntroller {
             throw new IllegalArgumentException("新密码不能为空");
         }
 
-        AppUser user = AppUserUtils.getLoginAppUser();
+//        AppUser user = AppUserUtils.getLoginAppUser();
+        AppUser user = new AppUser();
+        user.setId(new Long(3));
         userService.updatePassword(user.getId(),oldPassword,newPassword);
     }
 

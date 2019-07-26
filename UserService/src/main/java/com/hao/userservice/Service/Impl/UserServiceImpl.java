@@ -111,7 +111,18 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void updatePassword(Long id, String oldPassword, String newPassword) {
+        AppUser appUser = appUserDao.findById(id);
+        if(StringUtils.isNoneBlank(oldPassword)){
+            if(!passwordEncoder.matches(oldPassword,appUser.getPassword())){
+                throw new IllegalArgumentException("旧密码错误");
+            }
+        }
 
+        AppUser user = new AppUser();
+        user.setPassword(passwordEncoder.encode(newPassword));
+        user.setId(id);
+        appUserDao.update(user);
+        log.info("修改密码：{}", user);
     }
 
     @Override
