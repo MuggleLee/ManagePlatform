@@ -1,1 +1,3 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.hao.logstarter.autoconfigure.LogAutoConfiguration,\
+com.hao.logstarter.autoconfigure.LogAop

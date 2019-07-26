@@ -49,7 +49,7 @@ public class UserServiceImpl implements UserService {
             throw new IllegalArgumentException("用户名不能为空");
         }
 
-        if (PhoneUtil.checkPhone(username)) {
+        if (PhoneUtil.checkPhone(appUser.getPhone())) {
             throw new IllegalArgumentException("手机号码不正确");
         }
 

@@ -1,45 +1,41 @@
-//package com.hao.logstarter.autoconfigure;
-//
-//import java.io.Serializable;
-//import java.util.Date;
-//import java.util.HashMap;
-//import java.util.Map;
-//import java.util.concurrent.CompletableFuture;
-//
-//import org.aspectj.lang.ProceedingJoinPoint;
-//import org.aspectj.lang.annotation.Around;
-//import org.aspectj.lang.annotation.Aspect;
-//import org.aspectj.lang.reflect.MethodSignature;
-//import org.slf4j.Logger;
-//import org.slf4j.LoggerFactory;
-//import org.springframework.amqp.core.AmqpTemplate;
-//import org.springframework.beans.factory.annotation.Autowired;
-//
-//import com.alibaba.fastjson.JSONObject;
-//import com.cloud.common.utils.AppUserUtil;
-//import com.cloud.model.log.Log;
-//import com.cloud.model.log.LogAnnotation;
-//import com.cloud.model.log.constants.LogQueue;
-//import com.cloud.model.user.LoginAppUser;
-//
-///**
-// * aop实现日志
-// *
-// * @author 小威老师 xiaoweijiagou@163.com
-// */
-//@Aspect
-//public class LogAop {
-//
-//    private static final Logger logger = LoggerFactory.getLogger(LogAop.class);
-//
+package com.hao.logstarter.autoconfigure;
+
+import java.io.Serializable;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.CompletableFuture;
+
+import com.hao.commonmodel.Model.Log.LogAnnotation;
+import com.hao.commonmodel.Model.User.LoginAppUser;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.reflect.MethodSignature;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.alibaba.fastjson.JSONObject;
+
+/**
+ * aop实现日志
+ *
+ * @author 小威老师 xiaoweijiagou@163.com
+ */
+@Aspect
+public class LogAop {
+
+    private static final Logger logger = LoggerFactory.getLogger(LogAop.class);
+
 //    @Autowired
 //    private AmqpTemplate amqpTemplate;
-//
-//    /**
-//     * 环绕带注解 @LogAnnotation的方法做aop
-//     */
-//    @Around(value = "@annotation(com.cloud.model.log.LogAnnotation)")
-//    public Object logSave(ProceedingJoinPoint joinPoint) throws Throwable {
+
+    /**
+     * 环绕带注解 @LogAnnotation的方法做aop
+     */
+    @Around(value = "@annotation(com.hao.commonmodel.Model.Log.LogAnnotation)")
+    public Object logSave(ProceedingJoinPoint joinPoint) throws Throwable {
 //        Log log = new Log();
 //        log.setCreateTime(new Date());
 //        LoginAppUser loginAppUser = AppUserUtil.getLoginAppUser();
@@ -93,6 +89,6 @@
 //            });
 //
 //        }
-//
-//    }
-//}
+        return null;
+    }
+}
