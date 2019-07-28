@@ -6,6 +6,9 @@
 	<update id="update">
 		update app_user
 		<set>
+			<if test="username != null and username != ''">
+				username = #{username,jdbcType=VARCHAR},
+			</if>
 			<if test="password != null and password != ''">
 				password = #{password,jdbcType=VARCHAR},
 			</if>

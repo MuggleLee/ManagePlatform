@@ -4,12 +4,12 @@ import com.hao.commonmodel.Model.Log.LogAnnotation;
 import com.hao.commonmodel.Model.User.AppUser;
 import com.hao.commonmodel.Model.User.LoginAppUser;
 import com.hao.commonmodel.Model.User.SysRole;
+import com.hao.commonmodel.common.Page;
 import com.hao.commonunits.utils.AppUserUtils;
 import com.hao.userservice.Service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.Page;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -37,8 +37,8 @@ public class UserConntroller {
     }
 
     @GetMapping(value = "/users/internal",params = "username")
-    public AppUser findUserByName(String userName){
-        return userService.findByUserName(userName);
+    public AppUser findByUserName(String username){
+        return userService.findByUserName(username);
     }
 
 
@@ -101,7 +101,7 @@ public class UserConntroller {
     /**
      * 重置密码
      */
-    @LogAnnotation(module = "重置密码")
+//    @LogAnnotation(module = "重置密码")
     @PreAuthorize("hasAuthority('bak:user:password')")
     @PutMapping(value = "/user/{id}/password",params = "newPassword")
     public void resetPassowrd(@PathVariable Long id,String newPassword){
@@ -112,8 +112,8 @@ public class UserConntroller {
      * 后台修改用户信息
      * @return
      */
-    @LogAnnotation(module = "修改用户")
-    @PreAuthorize("hasAuthority('bak:user:update')")
+//    @LogAnnotation(module = "修改用户")
+//    @PreAuthorize("hasAuthority('bak:user:update')")
     @PutMapping("/users")
     public void updateAppUser(@RequestBody AppUser appUser){
         userService.updateAppUser(appUser);
@@ -126,7 +126,7 @@ public class UserConntroller {
     @PreAuthorize("hasAuthority('bak:user:query:role:set')")
     @PostMapping("/user/{id}/roles")
     public void setRoleToUser(@PathVariable Long id , @RequestBody Set<Long> roleIds){
-        userService.setRoletToUser(id,roleIds);
+        userService.setRoleToUser(id,roleIds);
     }
 
     /**

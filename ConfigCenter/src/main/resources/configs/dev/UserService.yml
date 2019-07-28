@@ -42,7 +42,7 @@ spring:
 #      type: web
 mybatis:
   type-aliases-package: com.hao.commonmodel.Model.User
-  mapper-locations: classpath:/mybatis-mappers/*
+  mapper-locations: classpath:/Mapper/*
   configuration:
     mapUnderscoreToCamelCase: true
 #security:

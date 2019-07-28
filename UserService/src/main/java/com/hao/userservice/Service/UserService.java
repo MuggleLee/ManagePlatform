@@ -3,7 +3,7 @@ package com.hao.userservice.Service;
 import com.hao.commonmodel.Model.User.AppUser;
 import com.hao.commonmodel.Model.User.LoginAppUser;
 import com.hao.commonmodel.Model.User.SysRole;
-import org.springframework.data.domain.Page;
+import com.hao.commonmodel.common.Page;
 
 import java.util.Map;
 import java.util.Set;
@@ -17,11 +17,11 @@ public interface UserService {
 
     void updateAppUser(AppUser appUser);
 
-    AppUser findByUserName(String userName);
+    LoginAppUser findByUserName(String userName);
 
     AppUser findById(Long id);
 
-    void setRoletToUser(Long id, Set<Long> roleIds);
+    void setRoleToUser(Long id, Set<Long> roleIds);
 
     void updatePassword(Long id, String oldPassword, String newPassword);
 

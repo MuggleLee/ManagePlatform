@@ -1,7 +1,7 @@
 package com.hao.userservice.Service;
 
 import com.hao.commonmodel.Model.User.SysPermission;
-import org.springframework.data.domain.Page;
+import com.hao.commonmodel.common.Page;
 
 import java.util.Map;
 import java.util.Set;
@@ -14,7 +14,7 @@ public interface SysPermissionService {
 
     Set<SysPermission> findByRoleIds(Set<Long> roleIds);
 
-    void save(SysPermission sysPermission);
+    void save(SysPermission sysPermission) throws IllegalAccessException;
 
     void update(SysPermission sysPermission);
 
