@@ -6,7 +6,7 @@ server:
 eureka:
   server:
     #关闭注册中心的保护机制
-    enable-self-preservation: true
+    enable-self-preservation: false
     #清理无效节点的时间间隔
     eviction-interval-timer-in-ms: 30000
   client:
@@ -31,7 +31,9 @@ management:
   endpoints:
     web:
       exposure:
-        exclude: "*" #默认只公开了/health和/info端点，设置 * 为暴露所有的端点
+        #默认只公开了/health和/info端点，设置 * 为暴露所有的端点
+        exclude: "*"
+        include: "*"
   endpoint:
     health:
       show-details: always #默认不显示健康信息

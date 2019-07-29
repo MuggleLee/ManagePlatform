@@ -1,4 +1,4 @@
-//package com.hao.userservice.controller;
+package com.hao.userservice.Controller;//package com.hao.userservice.controller;
 //
 //import com.cloud.common.utils.AppUserUtil;
 //import com.cloud.model.user.AppUser;

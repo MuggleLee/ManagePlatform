@@ -1,4 +1,4 @@
-package com.hao.userservice.controller;
+package com.hao.userservice.Controller;
 
 import com.hao.commonmodel.Model.Log.LogAnnotation;
 import com.hao.commonmodel.Model.User.SysPermission;

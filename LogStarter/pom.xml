@@ -30,6 +30,7 @@
     </dependencies>
 
     <build>
+        <finalName>${project.artifactId}</finalName><!--打jar包去掉版本号-->
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
