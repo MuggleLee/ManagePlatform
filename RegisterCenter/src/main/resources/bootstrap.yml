@@ -11,7 +11,8 @@ eureka:
     eviction-interval-timer-in-ms: 30000
   client:
     service-url:
-      dafalueZone: http://localhost:${server.port}/eureka/
+#      dafalueZone: http://47.107.104.181:8086/eureka/
+      dafalueZone: http://localhost:8761/eureka/
     #启动服务注册
     register-with-eureka: true
     #检索服务
@@ -26,7 +27,9 @@ eureka:
     #不使用主机名来定义注册中心的地址，而使用IP地址的形式
     prefer-ip-address: true
     #将Instance ID设置成IP:端口的形式
-    instance-id: ${spring.application.name}:${server.port}
+#    instance-id: 47.107.104.181:8086
+    instance-id: ${spring.application.name}:8761
+#    hostname: 47.107.103.181
 management:
   endpoints:
     web:
