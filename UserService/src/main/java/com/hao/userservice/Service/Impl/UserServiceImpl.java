@@ -120,6 +120,7 @@ public class UserServiceImpl implements UserService {
                     loginAppUser.setPermissions(permissions);
                 }
             }
+            log.info("LoginAppUser：{}",loginAppUser);
             return loginAppUser;
         }
         return null;

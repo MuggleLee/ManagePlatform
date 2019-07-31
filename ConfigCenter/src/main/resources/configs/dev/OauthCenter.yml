@@ -42,12 +42,12 @@ logging:
     root: info
     com.cloud: debug
   file: logs/${spring.application.name}.log
-#ribbon:
-#  eager-load:
-#    enabled: true
-#    clients: user-center
-#  ReadTimeout: 10000
-#  ConnectTimeout: 10000
+ribbon:
+  eager-load:
+    enabled: true
+    clients: UserCenter
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
 #hystrix:
 #  command:
 #    default:

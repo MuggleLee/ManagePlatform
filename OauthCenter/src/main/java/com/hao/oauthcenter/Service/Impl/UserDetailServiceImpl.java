@@ -43,6 +43,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
         username = params[0];// 真正的用户名
 
         LoginAppUser loginAppUser = userClient.findByUsername(username);
+        log.info("loginAppUser:{}",loginAppUser);
         if (loginAppUser == null) {
             throw new AuthenticationCredentialsNotFoundException("用户不存在");
         } else if (!loginAppUser.isEnabled()) {
