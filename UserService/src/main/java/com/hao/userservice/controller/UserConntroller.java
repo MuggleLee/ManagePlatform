@@ -36,7 +36,7 @@ public class UserConntroller {
         return AppUserUtils.getLoginAppUser();
     }
 
-    @GetMapping(value = "/users/internal",params = "username")
+    @GetMapping(value = "/users-anon/internal",params = "username")
     public AppUser findByUserName(String username){
         return userService.findByUserName(username);
     }

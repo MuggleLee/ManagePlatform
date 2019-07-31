@@ -20,8 +20,6 @@ import com.alibaba.fastjson.JSONObject;
 
 /**
  * aop实现日志
- *
- * @author 小威老师 xiaoweijiagou@163.com
  */
 @Aspect
 public class LogAop {

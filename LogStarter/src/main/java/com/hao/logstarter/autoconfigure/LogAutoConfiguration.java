@@ -4,9 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-/**
- * @author 小威老师 xiaoweijiagou@163.com
- */
 @Configuration
 public class LogAutoConfiguration {
 

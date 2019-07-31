@@ -6,7 +6,7 @@ logging:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://47.107.104.181:12345/cloud_user?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    url: jdbc:mysql://47.107.104.181:12345/cloud_log?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
     username: root
     password: 123456
     hikari:
@@ -19,17 +19,10 @@ spring:
 #    username: cloud-dev
 #    password: cloud-dev
 #    virtual-host: /
-  redis:
-    host: 47.107.104.181
-    port: 8083
-    password: 123456
-    timeout: 10s
-    lettuce:
-      pool:
-        min-idle: 0
-        max-idle: 8
-        max-active: 8
-        max-wait: -1ms
+#    listener:
+#      simple:
+#        concurrency: 20
+#        max-concurrency: 50
   mvc:
     servlet:
       load-on-startup: 1
@@ -41,8 +34,8 @@ spring:
 #    sender:
 #      type: web
 mybatis:
-  type-aliases-package: com.hao.commonmodel.Model.User
-  mapper-locations: classpath:/Mapper/*
+  type-aliases-package: com.hao.commonmodel.Model.Log
+  mapper-locations: classpath:/mappers/*
   configuration:
     mapUnderscoreToCamelCase: true
 security:
@@ -51,22 +44,6 @@ security:
 #      user-info-uri: http://local.gateway.com:8080/api-o/user-me
       user-info-uri: http://127.0.0.1:8082/user-me
       prefer-token-info: false
-#wechat:
-#  domain: http://api.gateway.com:8080/api-u
-#  infos:
-#    app1:
-#      appid: xxx
-#      secret: xxx
-#    app2:
-#      appid: xxx
-#      secret: xxx
-ribbon:
-  ReadTimeout: 10000
-  ConnectTimeout: 10000
-#hystrix:
-#  command:
-#    default:
-#      execution:
-#        isolation:
-#          thread:
-#            timeoutInMilliseconds: 60000
+elasticsearch:
+  clusterName: elasticsearch
+  clusterNodes: 47.107.104.181:8087
