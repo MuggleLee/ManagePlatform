@@ -7,7 +7,7 @@
         <artifactId>microservice</artifactId>
         <version>1.0</version>
     </parent>
-    <groupId>com.hao</groupId>
+    <!--<groupId>com.hao</groupId>-->
     <artifactId>common-units</artifactId>
     <version>1.0</version>
     <name>CommonUnits</name>
@@ -25,5 +25,20 @@
             <version>${security-oauth2.version}</version>
         </dependency>
     </dependencies>
+
+    <!--<build>-->
+        <!--<plugins>-->
+            <!--<plugin>-->
+                <!--<groupId>org.apache.maven.plugins</groupId>-->
+                <!--<artifactId>maven-surefire-plugin</artifactId>-->
+                <!--<version>2.4.2</version>-->
+                <!--<configuration>-->
+                    <!--<skipTests>true</skipTests>-->
+                <!--</configuration>-->
+            <!--</plugin>-->
+        <!--</plugins>-->
+    <!--</build>-->
+
+
 
 </project>

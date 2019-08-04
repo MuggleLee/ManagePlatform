@@ -7,9 +7,9 @@
         <artifactId>microservice</artifactId>
         <version>1.0</version>
     </parent>
-    <groupId>com.hao</groupId>
+    <!--<groupId>com.hao</groupId>-->
     <artifactId>userservice</artifactId>
-    <version>1.0</version>
+    <!--<version>1.0</version>-->
     <packaging>jar</packaging>
 
     <dependencies>
@@ -71,23 +71,13 @@
             <artifactId>springfox-swagger-ui</artifactId>
             <version>${swagger.version}</version>
         </dependency>
-        <!--<dependency>-->
-            <!--<groupId>org.springframework.cloud</groupId>-->
-            <!--<artifactId>spring-cloud-starter-zipkin</artifactId>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security.oauth</groupId>
-            <artifactId>spring-security-oauth2</artifactId>
-            <version>RELEASE</version>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.security.oauth</groupId>
-            <artifactId>spring-security-oauth2</artifactId>
-            <version>RELEASE</version>
         </dependency>
     </dependencies>
 

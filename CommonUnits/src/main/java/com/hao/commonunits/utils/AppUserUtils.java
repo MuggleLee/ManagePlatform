@@ -32,7 +32,7 @@ public class AppUserUtils {
             }
 
             Map map = (Map) authentication.getDetails();
-            map = (Map) map.get("princical");
+            map = (Map) map.get("principal");
             // 使用JSONObject将map对象转换成loginAppUser对象
             return JSONObject.parseObject(JSONObject.toJSONString(map),LoginAppUser.class);
         }

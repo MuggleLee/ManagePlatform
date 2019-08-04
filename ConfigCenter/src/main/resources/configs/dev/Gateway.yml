@@ -18,32 +18,32 @@ zuul:
   routes:
     oauth:
       path: /api-o/**
-      serviceId: oauth-center
+      serviceId: OauthCenter
     api-u:
       path: /api-u/**
-      serviceId: user-center
+      serviceId: UserCenter
     backend:
       path: /api-b/**
-      serviceId: manage-backend
+      serviceId: ManageBackend
     log:
       path: /api-l/**
-      serviceId: log-center
+      serviceId: LogCenter
     file:
       path: /api-f/**
-      serviceId: file-center
+      serviceId: FileCenter
     sms:
       path: /api-n/**
-      serviceId: notification-center
+      serviceId: NotificationCenter
   host:
     connect-timeout-millis: 10000
     socket-timeout-millis: 60000
   add-proxy-headers: true
-#  ribbon:
-#    eager-load:
-#      enabled: true
-#ribbon:
-#  ReadTimeout: 10000
-#  ConnectTimeout: 10000
+  ribbon:
+    eager-load:
+      enabled: true
+ribbon:
+  ReadTimeout: 10000
+  ConnectTimeout: 10000
 #hystrix:
 #  command:
 #    default:

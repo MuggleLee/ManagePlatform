@@ -33,6 +33,7 @@ public class UserConntroller {
      */
     @GetMapping("/user/current")
     public LoginAppUser getLoginAppUser(){
+        System.out.println(AppUserUtils.getLoginAppUser());
         return AppUserUtils.getLoginAppUser();
     }
 
@@ -113,8 +114,8 @@ public class UserConntroller {
      * @return
      */
 //    @LogAnnotation(module = "修改用户")
-//    @PreAuthorize("hasAuthority('bak:user:update')")
-    @PutMapping("/users")
+    @PreAuthorize("hasAuthority('bak:user:update')")
+//    @PutMapping("/users")
     public void updateAppUser(@RequestBody AppUser appUser){
         userService.updateAppUser(appUser);
     }
