@@ -11,9 +11,6 @@ import org.springframework.security.oauth2.config.annotation.web.configuration.R
 
 /**
  * 资源服务配置
- * 
- * @author 小威老师
- *
  */
 @EnableResourceServer
 @EnableWebSecurity

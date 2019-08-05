@@ -16,8 +16,6 @@ import javax.servlet.http.HttpServletRequest;
  * 如在oauth登陆的时候用到根据username查询用户，<br>
  * 用户系统提供的查询接口/users-anon/internal肯定不能做登录拦截，而该接口也不能对外网暴露<br>
  * 如果有此类场景的uri，请用这种命名格式，
- *
- * @author 小威老师
  */
 @Component
 public class InternalURIAccessFilter extends ZuulFilter {
