@@ -1,9 +1,11 @@
-package com.hao.logcenter.controller;
+package com.hao.logcenter.Controller;
 
 import com.hao.commonmodel.Model.Log.Log;
 import com.hao.commonmodel.common.Page;
-import com.hao.logcenter.service.LogService;
+import com.hao.logcenter.Service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Async;
+import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 

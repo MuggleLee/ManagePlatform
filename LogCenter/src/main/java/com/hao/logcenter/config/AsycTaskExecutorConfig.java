@@ -1,4 +1,4 @@
-package com.hao.logcenter.config;
+package com.hao.logcenter.Config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

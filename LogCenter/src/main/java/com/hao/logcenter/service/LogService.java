@@ -1,4 +1,4 @@
-package com.hao.logcenter.service;
+package com.hao.logcenter.Service;
 
 import com.hao.commonmodel.Model.Log.Log;
 import com.hao.commonmodel.common.Page;

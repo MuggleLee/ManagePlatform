@@ -1,8 +1,8 @@
-package com.hao.logcenter.consumer;
+package com.hao.logcenter.Consumer;
 
 import com.hao.commonmodel.Model.Log.Log;
 import com.hao.commonmodel.Model.Log.constants.LogQueue;
-import com.hao.logcenter.service.LogService;
+import com.hao.logcenter.Service.LogService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;

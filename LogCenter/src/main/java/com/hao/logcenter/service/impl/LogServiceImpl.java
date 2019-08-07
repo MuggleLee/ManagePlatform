@@ -1,4 +1,4 @@
-package com.hao.logcenter.service.impl;
+package com.hao.logcenter.Service.impl;
 
 import java.util.Collections;
 import java.util.Date;
@@ -8,16 +8,14 @@ import java.util.Map;
 import com.hao.commonmodel.Model.Log.Log;
 import com.hao.commonmodel.common.Page;
 import com.hao.commonunits.utils.PageUtil;
-import com.hao.logcenter.dao.LogDao;
-import com.hao.logcenter.service.LogService;
+import com.hao.logcenter.Dao.LogDao;
+import com.hao.logcenter.Service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
 /**
  * 日志存储到mysql实现
- *
- * @author 小威老师 xiaoweijiagou@163.com
  */
 //@Primary
 @Service

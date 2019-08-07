@@ -1,4 +1,4 @@
-package com.hao.logcenter.service.impl;
+package com.hao.logcenter.Service.impl;
 
 import java.time.LocalDateTime;
 import java.time.ZoneId;
@@ -13,7 +13,7 @@ import javax.annotation.PostConstruct;
 import com.hao.commonmodel.Model.Log.Log;
 import com.hao.commonmodel.common.Page;
 import com.hao.commonunits.utils.PageUtil;
-import com.hao.logcenter.service.LogService;
+import com.hao.logcenter.Service.LogService;
 import org.apache.commons.collections4.MapUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.elasticsearch.action.admin.indices.create.CreateIndexRequestBuilder;
@@ -42,8 +42,6 @@ import com.alibaba.fastjson.JSONObject;
 
 /**
  * 日志存储到elasticsearch实现
- *
- * @author 小威老师 xiaoweijiagou@163.com
  */
 //@Service
 public class EsLogServiceImpl implements LogService, ApplicationContextAware {

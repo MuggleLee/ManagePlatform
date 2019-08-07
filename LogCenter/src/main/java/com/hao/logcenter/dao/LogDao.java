@@ -1,4 +1,4 @@
-package com.hao.logcenter.dao;
+package com.hao.logcenter.Dao;
 
 import java.util.List;
 import java.util.Map;
