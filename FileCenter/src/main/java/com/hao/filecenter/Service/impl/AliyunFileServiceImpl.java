@@ -1,9 +1,9 @@
 package com.hao.filecenter.Service.impl;
 
 import com.aliyun.oss.OSSClient;
-import com.cloud.file.dao.FileDao;
-import com.cloud.file.model.FileInfo;
-import com.cloud.file.model.FileSource;
+import com.hao.filecenter.Dao.FileDao;
+import com.hao.filecenter.Model.FileInfo;
+import com.hao.filecenter.Model.FileSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -11,8 +11,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 /**
  * 阿里云存储文件
- *
- * @author 小威老师 xiaoweijiagou@163.com
  */
 @Service("aliyunFileServiceImpl")
 public class AliyunFileServiceImpl extends AbstractFileService {

@@ -5,8 +5,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import com.hao.commonmodel.Model.Log.Log;
-import com.hao.commonmodel.common.Page;
+import com.hao.commonmodel.Log.Log;
+import com.hao.commonmodel.Common.Page;
 import com.hao.commonunits.utils.PageUtil;
 import com.hao.logcenter.Dao.LogDao;
 import com.hao.logcenter.Service.LogService;

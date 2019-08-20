@@ -1,7 +1,7 @@
 package com.hao.oauthcenter.Service.Impl;
 
-import com.hao.commonmodel.Model.User.LoginAppUser;
-import com.hao.commonmodel.Model.User.constants.CredentialType;
+import com.hao.commonmodel.User.LoginAppUser;
+import com.hao.commonmodel.User.constants.CredentialType;
 import com.hao.oauthcenter.Feigin.SmsClient;
 import com.hao.oauthcenter.Feigin.UserClient;
 import org.apache.commons.codec.digest.DigestUtils;

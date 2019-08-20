@@ -1,6 +1,6 @@
 package com.hao.oauthcenter.Config;
 
-import com.hao.commonmodel.Model.User.LoginAppUser;
+import com.hao.commonmodel.User.LoginAppUser;
 import com.hao.oauthcenter.Service.Impl.RandomAuthenticationKeyGenerator;
 import com.hao.oauthcenter.Service.Impl.RedisAuthorizationCodeServices;
 import com.hao.oauthcenter.Service.Impl.RedisClientDetailsService;

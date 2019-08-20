@@ -5,7 +5,7 @@ spring:
     config:
       discovery:
         enabled: true
-        serviceId: configcenter
+        serviceId: ConfigCenter
       profile: dev
       fail-fast: true
 server:
@@ -13,7 +13,7 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://127.0.0.1:8761/eureka/
     registry-fetch-interval-seconds: 5
   instance:
     lease-expiration-duration-in-seconds: 15

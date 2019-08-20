@@ -1,7 +1,7 @@
 package com.hao.userservice.Service.Impl;
 
-import com.hao.commonmodel.Model.User.SysPermission;
-import com.hao.commonmodel.common.Page;
+import com.hao.commonmodel.User.SysPermission;
+import com.hao.commonmodel.Common.Page;
 import com.hao.commonunits.utils.PageUtil;
 import com.hao.userservice.Dao.RolePermissionDao;
 import com.hao.userservice.Dao.SysPermissionDao;

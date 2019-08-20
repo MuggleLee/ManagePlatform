@@ -1,6 +1,6 @@
 package com.hao.oauthcenter.Feigin;
 
-import com.hao.commonmodel.Model.User.LoginAppUser;
+import com.hao.commonmodel.User.LoginAppUser;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

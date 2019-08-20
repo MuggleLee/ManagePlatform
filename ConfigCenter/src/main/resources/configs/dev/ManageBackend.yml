@@ -6,28 +6,29 @@ logging:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://47.107.104.181:12345/cloud_backend?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+#    url: jdbc:mysql://47.107.104.181:12345/cloud_backend?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/cloud_backend?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
     username: root
     password: 123456
-#    hikari:
-#      minimum-idle: 5
-#      maximum-pool-size: 20
-#      connection-test-query: SELECT 1
-#  rabbitmq:
-#    host: local.rabbitmq.com
-#    port: 5672
-#    username: cloud-dev
-#    password: cloud-dev
-#    virtual-host: /
-#  mail:
-#    default-encoding: UTF-8
-#    host: smtp.163.com
-#    username:
-#    password:
-#    protocol: smtp
-#    test-connection: false
-  #    properties:
-  #      mail.smtp.auth: true
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+      connection-test-query: SELECT 1
+  rabbitmq:
+    host: 47.107.104.181
+    port: 8085
+    username: guest
+    password: 123456
+    virtual-host: /
+  mail:
+    default-encoding: UTF-8
+    host: smtp.163.com
+    username:
+    password:
+    protocol: smtp
+    test-connection: false
+#      properties:
+#        mail.smtp.auth: true
   mvc:
     servlet:
       load-on-startup: 1
@@ -38,13 +39,13 @@ spring:
 #    enabled: true
 #    sender:
 #      type: web
-#mybatis:
-#  type-aliases-package: com.hao.backend.model,com.cloud.model.mail
-#  mapper-locations: classpath:/mybatis-mappers/*
-#  configuration:
-#    mapUnderscoreToCamelCase: true
-#security:
-#  oauth2:
-#    resource:
-#      user-info-uri: http://local.gateway.com:8080/api-o/user-me
-#      prefer-token-info: false
+mybatis:
+  type-aliases-package: com.hao.managebackend.Model,com.hao.commonmodel.Mail
+  mapper-locations: classpath:/mybatis-mappers/*
+  configuration:
+    mapUnderscoreToCamelCase: true
+security:
+  oauth2:
+    resource:
+      user-info-uri: http://127.0.0.1:8093/api-o/user-me
+      prefer-token-info: false

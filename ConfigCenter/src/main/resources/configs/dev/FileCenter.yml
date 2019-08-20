@@ -6,7 +6,8 @@ logging:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://47.107.104.181:12345/cloud_file?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+#    url: jdbc:mysql://47.107.104.181:12345/cloud_file?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/cloud_file?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
     username: root
     password: 123456
     hikari:
@@ -45,9 +46,10 @@ security:
       prefer-token-info: false
 file:
   local:
-    path: d:/localFile
+    path: /Document/Github/Download
     prefix: /statics
-    urlPrefix: http://api.gateway.com:8080/api-f${file.local.prefix}
+#    urlPrefix: http://api.gateway.com:8080/api-f${file.local.prefix}
+    urlPrefix: http://127.0.0.1:8082/api-f${file.local.prefix}
 #  aliyun:
 #    endpoint: xxx
 #    accessKeyId: xxx

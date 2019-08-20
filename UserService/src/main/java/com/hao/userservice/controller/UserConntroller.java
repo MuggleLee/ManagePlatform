@@ -1,10 +1,10 @@
 package com.hao.userservice.Controller;
 
-import com.hao.commonmodel.Model.Log.LogAnnotation;
-import com.hao.commonmodel.Model.User.AppUser;
-import com.hao.commonmodel.Model.User.LoginAppUser;
-import com.hao.commonmodel.Model.User.SysRole;
-import com.hao.commonmodel.common.Page;
+import com.hao.commonmodel.Log.LogAnnotation;
+import com.hao.commonmodel.User.AppUser;
+import com.hao.commonmodel.User.LoginAppUser;
+import com.hao.commonmodel.User.SysRole;
+import com.hao.commonmodel.Common.Page;
 import com.hao.commonunits.utils.AppUserUtils;
 import com.hao.userservice.Service.UserService;
 import lombok.extern.slf4j.Slf4j;

@@ -1,11 +1,9 @@
 package com.hao.logcenter.Controller;
 
-import com.hao.commonmodel.Model.Log.Log;
-import com.hao.commonmodel.common.Page;
+import com.hao.commonmodel.Log.Log;
+import com.hao.commonmodel.Common.Page;
 import com.hao.logcenter.Service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.scheduling.annotation.Async;
-import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,7 +28,7 @@ public class LogController {
 	@PreAuthorize("hasAuthority('log:query')")
 	@GetMapping("/logs-modules")
 	public Map<String, String> logModule() {
-		return com.hao.commonmodel.Model.Log.constants.LogModule.MODULES;
+		return com.hao.commonmodel.Log.constants.LogModule.MODULES;
 	}
 
 	/**

@@ -1,9 +1,9 @@
 package com.hao.userservice.Service;
 
-import com.hao.commonmodel.Model.User.AppUser;
-import com.hao.commonmodel.Model.User.LoginAppUser;
-import com.hao.commonmodel.Model.User.SysRole;
-import com.hao.commonmodel.common.Page;
+import com.hao.commonmodel.User.AppUser;
+import com.hao.commonmodel.User.LoginAppUser;
+import com.hao.commonmodel.User.SysRole;
+import com.hao.commonmodel.Common.Page;
 
 import java.util.Map;
 import java.util.Set;

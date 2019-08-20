@@ -1,6 +1,5 @@
 package com.hao.userservice.Controller;//package com.hao.userservice.controller;
 //
-//import com.cloud.common.utils.AppUserUtil;
 //import com.cloud.model.user.AppUser;
 //import com.cloud.model.user.WechatUserInfo;
 //import com.cloud.user.service.WechatService;

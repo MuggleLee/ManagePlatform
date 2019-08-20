@@ -1,6 +1,6 @@
 package com.hao.userservice.Dao;
 
-import com.hao.commonmodel.Model.User.SysRole;
+import com.hao.commonmodel.User.SysRole;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;

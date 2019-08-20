@@ -1,6 +1,6 @@
 package com.hao.userservice.Dao;
 
-import com.hao.commonmodel.Model.User.SysPermission;
+import com.hao.commonmodel.User.SysPermission;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;

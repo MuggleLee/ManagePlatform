@@ -6,7 +6,8 @@ logging:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://47.107.104.181:12345/cloud_user?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+#    url: jdbc:mysql://47.107.104.181:12345/cloud_user?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    url: jdbc:mysql://127.0.0.1:3306/cloud_user?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
     username: root
     password: 123456
     hikari:
@@ -41,7 +42,7 @@ spring:
 #    sender:
 #      type: web
 mybatis:
-  type-aliases-package: com.hao.commonmodel.Model.User
+  type-aliases-package: com.hao.commonmodel.User
   mapper-locations: classpath:/Mapper/*
   configuration:
     mapUnderscoreToCamelCase: true

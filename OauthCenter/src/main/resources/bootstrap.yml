@@ -13,7 +13,8 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://47.107.104.181:8086/eureka/
+#      defaultZone: http://47.107.104.181:8086/eureka/
+      defaultZone: http://127.0.0.1:8761/eureka/
     registry-fetch-interval-seconds: 5
   instance:
     lease-expiration-duration-in-seconds: 15

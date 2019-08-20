@@ -1,8 +1,8 @@
 package com.hao.gateway.Controller;
 
-import com.hao.commonmodel.Model.Log.Log;
-import com.hao.commonmodel.Model.Oauth.SystemClientInfo;
-import com.hao.commonmodel.Model.User.constants.CredentialType;
+import com.hao.commonmodel.Log.Log;
+import com.hao.commonmodel.Oauth.SystemClientInfo;
+import com.hao.commonmodel.User.constants.CredentialType;
 import com.hao.gateway.Feign.LogClient;
 import com.hao.gateway.Feign.Oauth2Client;
 import lombok.extern.slf4j.Slf4j;

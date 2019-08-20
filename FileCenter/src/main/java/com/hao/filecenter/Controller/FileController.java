@@ -1,7 +1,7 @@
 package com.hao.filecenter.Controller;
 
-import com.hao.commonmodel.Model.Log.LogAnnotation;
-import com.hao.commonmodel.common.Page;
+import com.hao.commonmodel.Log.LogAnnotation;
+import com.hao.commonmodel.Common.Page;
 import com.hao.commonunits.utils.PageUtil;
 import com.hao.filecenter.Config.FileServiceFactory;
 import com.hao.filecenter.Dao.FileDao;

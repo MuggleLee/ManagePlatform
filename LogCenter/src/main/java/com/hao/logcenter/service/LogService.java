@@ -1,7 +1,7 @@
 package com.hao.logcenter.Service;
 
-import com.hao.commonmodel.Model.Log.Log;
-import com.hao.commonmodel.common.Page;
+import com.hao.commonmodel.Log.Log;
+import com.hao.commonmodel.Common.Page;
 
 import java.util.Map;
 

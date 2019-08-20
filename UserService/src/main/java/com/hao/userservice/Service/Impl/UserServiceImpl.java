@@ -1,9 +1,9 @@
 package com.hao.userservice.Service.Impl;
 
-import com.hao.commonmodel.Model.User.*;
-import com.hao.commonmodel.Model.User.constants.CredentialType;
-import com.hao.commonmodel.Model.User.constants.UserType;
-import com.hao.commonmodel.common.Page;
+import com.hao.commonmodel.User.*;
+import com.hao.commonmodel.User.constants.CredentialType;
+import com.hao.commonmodel.User.constants.UserType;
+import com.hao.commonmodel.Common.Page;
 import com.hao.commonunits.utils.PageUtil;
 import com.hao.commonunits.utils.PhoneUtil;
 import com.hao.userservice.Dao.AppUserDao;
@@ -13,7 +13,6 @@ import com.hao.userservice.Service.SysPermissionService;
 import com.hao.userservice.Service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
-import org.codehaus.jackson.map.util.BeanUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;

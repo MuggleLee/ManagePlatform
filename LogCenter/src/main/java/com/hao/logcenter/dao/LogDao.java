@@ -3,7 +3,7 @@ package com.hao.logcenter.Dao;
 import java.util.List;
 import java.util.Map;
 
-import com.hao.commonmodel.Model.Log.Log;
+import com.hao.commonmodel.Log.Log;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 

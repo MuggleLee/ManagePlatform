@@ -1,7 +1,7 @@
 package com.hao.logcenter.Consumer;
 
-import com.hao.commonmodel.Model.Log.Log;
-import com.hao.commonmodel.Model.Log.constants.LogQueue;
+import com.hao.commonmodel.Log.Log;
+import com.hao.commonmodel.Log.constants.LogQueue;
 import com.hao.logcenter.Service.LogService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,9 +12,6 @@ import org.springframework.stereotype.Component;
 
 /**
  * 从mq队列消费日志数据
- * 
- * @author 小威老师 xiaoweijiagou@163.com
- *
  */
 @Component
 @RabbitListener(queues = LogQueue.LOG_QUEUE) // 监听队列
