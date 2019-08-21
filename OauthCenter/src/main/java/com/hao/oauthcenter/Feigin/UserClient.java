@@ -15,4 +15,6 @@ public interface UserClient {
     @GetMapping(value = "/users-anon/internal",params = "username")
     LoginAppUser findByUsername(@RequestParam("username") String username);
 
+    @GetMapping("/wechat/login-check")
+    public void wechatLoginCheck(@RequestParam("tempCode") String tempCode, @RequestParam("openid") String openid);
 }

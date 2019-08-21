@@ -6,6 +6,7 @@ import com.hao.commonmodel.User.LoginAppUser;
 import com.hao.commonmodel.User.SysRole;
 import com.hao.commonmodel.Common.Page;
 import com.hao.commonunits.utils.AppUserUtils;
+import com.hao.userservice.Feign.SmsClient;
 import com.hao.userservice.Service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang.StringUtils;
@@ -26,6 +27,9 @@ public class UserConntroller {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private SmsClient smsClient;
 
     /**
      * 获取当前用户的信息
@@ -82,7 +86,7 @@ public class UserConntroller {
     /**
      * 修改密码
      */
-//    @LogAnnotation(module = "修改密码")
+    @LogAnnotation(module = "修改密码")
     @PutMapping(value = "/users/password",params = {"oldPassword","newPassword"})
     public void updatePassword(String oldPassword,String newPassword){
         System.out.println("Test");
@@ -93,16 +97,16 @@ public class UserConntroller {
             throw new IllegalArgumentException("新密码不能为空");
         }
 
-//        AppUser user = AppUserUtils.getLoginAppUser();
-        AppUser user = new AppUser();
-        user.setId(new Long(3));
+        AppUser user = AppUserUtils.getLoginAppUser();
+//        AppUser user = new AppUser();
+//        user.setId(new Long(3));
         userService.updatePassword(user.getId(),oldPassword,newPassword);
     }
 
     /**
      * 重置密码
      */
-//    @LogAnnotation(module = "重置密码")
+    @LogAnnotation(module = "重置密码")
     @PreAuthorize("hasAuthority('bak:user:password')")
     @PutMapping(value = "/user/{id}/password",params = "newPassword")
     public void resetPassowrd(@PathVariable Long id,String newPassword){
@@ -113,9 +117,9 @@ public class UserConntroller {
      * 后台修改用户信息
      * @return
      */
-//    @LogAnnotation(module = "修改用户")
+    @LogAnnotation(module = "修改用户")
     @PreAuthorize("hasAuthority('bak:user:update')")
-//    @PutMapping("/users")
+    @PutMapping("/users")
     public void updateAppUser(@RequestBody AppUser appUser){
         userService.updateAppUser(appUser);
     }
@@ -140,22 +144,34 @@ public class UserConntroller {
         return userService.findRolesByUserId(id);
     }
 
-//    @LogAnnotation(module = "绑定手机号")
-//    @PostMapping(value = "/user/binding-phone")
-//    public void bindingPhone(String phone,String key,String code) throws IllegalAccessException {
-//        if(StringUtils.isBlank(phone)){
-//            throw new IllegalAccessException("手机号不能为空");
-//        }
-//        if(StringUtils.isBlank(key)){
-//            throw new IllegalAccessException("key不能为空");
-//        }
-//        if(StringUtils.isBlank(code)){
-//            throw new IllegalAccessException("code不能为空");
-//        }
-//
-////        LoginAppUser loginAppUser =
-//
-//
-//    }
+    @LogAnnotation(module = "绑定手机号")
+    @PostMapping(value = "/user/binding-phone")
+    public void bindingPhone(String phone,String key,String code) throws IllegalAccessException {
+        if(StringUtils.isBlank(phone)){
+            throw new IllegalAccessException("手机号不能为空");
+        }
+        if(StringUtils.isBlank(key)){
+            throw new IllegalAccessException("key不能为空");
+        }
+        if(StringUtils.isBlank(code)){
+            throw new IllegalAccessException("code不能为空");
+        }
+
+//        LoginAppUser loginAppUser =
+
+        LoginAppUser loginAppUser = AppUserUtils.getLoginAppUser();
+        log.info("绑定手机号，key:{},code:{},username:{}", key, code, loginAppUser.getUsername());
+
+        String value = smsClient.matcheCodeAndGetPhone(key, code, false, 30);
+        if (value == null) {
+            throw new IllegalArgumentException("验证码错误");
+        }
+
+        if (phone.equals(value)) {
+            userService.bindingPhone(loginAppUser.getId(), phone);
+        } else {
+            throw new IllegalArgumentException("手机号不一致");
+        }
+    }
 
 }
