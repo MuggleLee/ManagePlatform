@@ -11,7 +11,7 @@ spring:
       fail-fast: true
       uri:
 server:
-  port: 8093
+  port: 8089
 eureka:
   client:
     serviceUrl:
