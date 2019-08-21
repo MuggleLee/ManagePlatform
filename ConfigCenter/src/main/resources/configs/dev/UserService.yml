@@ -6,8 +6,8 @@ logging:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-#    url: jdbc:mysql://47.107.104.181:12345/cloud_user?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
-    url: jdbc:mysql://127.0.0.1:3306/cloud_user?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    url: jdbc:mysql://47.107.104.181:12345/cloud_user?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+#    url: jdbc:mysql://127.0.0.1:3306/cloud_user?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
     username: root
     password: 123456
     hikari:
@@ -51,7 +51,8 @@ security:
     resource:
 #      user-info-uri: http://local.gateway.com:8080/api-o/user-me
 #      user-info-uri: http://127.0.0.1:8082/user-me
-      user-info-uri: http://127.0.0.1:8093/api-o/user-me
+#      user-info-uri: http://127.0.0.1:8093/api-o/user-me
+      user-info-uri: http://47.107.104.181:8093/api-o/user-me
       prefer-token-info: false
 #wechat:
 #  domain: http://api.gateway.com:8080/api-u
