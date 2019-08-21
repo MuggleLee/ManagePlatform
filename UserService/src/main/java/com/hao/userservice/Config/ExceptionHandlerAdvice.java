@@ -15,12 +15,12 @@ import java.util.Map;
 @RestControllerAdvice
 public class ExceptionHandlerAdvice {
 
-//    @ExceptionHandler({IllegalArgumentException.class})
-//    @ResponseStatus(HttpStatus.BAD_REQUEST)
-//    public Map<String, Object> badRequestException(IllegalArgumentException exception) {
-//        Map<String, Object> data = new HashMap();
-//        data.put("code", HttpStatus.BAD_REQUEST.value());
-//        data.put("message", exception.getStackTrace());
-//        return data;
-//    }
+    @ExceptionHandler({IllegalArgumentException.class})
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    public Map<String, Object> badRequestException(IllegalArgumentException exception) {
+        Map<String, Object> data = new HashMap();
+        data.put("code", HttpStatus.BAD_REQUEST.value());
+        data.put("message", exception.getStackTrace());
+        return data;
+    }
 }

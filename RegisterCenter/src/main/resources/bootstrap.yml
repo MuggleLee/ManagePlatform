@@ -28,7 +28,7 @@ eureka:
     prefer-ip-address: true
     #将Instance ID设置成IP:端口的形式
 #    instance-id: 47.107.104.181:8086
-    instance-id: ${spring.application.name}:8761
+    instance-id: ${spring.application.name}:${server.port}
 #    hostname: 47.107.103.181
 management:
   endpoints:

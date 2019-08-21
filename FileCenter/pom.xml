@@ -13,7 +13,6 @@
     <name>FileCenter</name>
     <packaging>jar</packaging>
     
-
     <dependencies>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
@@ -74,6 +73,26 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <!-- Docker maven plugin -->
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>docker-maven-plugin</artifactId>
+                <version>1.0.0</version>
+                <configuration>
+                    <imageName>${project.groupId}/${project.artifactId}:${project.version}</imageName>
+                    <baseImage>openjdk:8-jdk-alpine</baseImage>
+                    <maintainer>MuggleLee</maintainer>
+                    <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
+                    <resources>
+                        <resource>
+                            <targetPath>/</targetPath>
+                            <directory>${project.build.directory}</directory>
+                            <include>${project.build.finalName}.jar</include>
+                        </resource>
+                    </resources>
+                </configuration>
+            </plugin>
+            <!-- Docker maven plugin -->
         </plugins>
     </build>
 
