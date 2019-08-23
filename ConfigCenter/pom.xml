@@ -8,8 +8,9 @@
         <version>1.0</version>
     </parent>
     <groupId>com.hao</groupId>
-    <artifactId>configcenter</artifactId>
+    <artifactId>config-center</artifactId>
     <version>1.0</version>
+    <name>ConfigCenter</name>
 
     <dependencies>
         <dependency>

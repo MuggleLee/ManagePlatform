@@ -9,8 +9,9 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <groupId>com.hao</groupId>
-    <artifactId>registercenter</artifactId>
+    <artifactId>register-center</artifactId>
     <version>1.0</version>
+    <name>RegisterCenter</name>
 
     <dependencies>
         <dependency>

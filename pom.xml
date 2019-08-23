@@ -16,13 +16,13 @@
     <modules>
         <module>RegisterCenter</module>
         <module>ConfigCenter</module>
-        <module>UserService</module>
+        <module>UserCenter</module>
         <module>CommonUnits</module>
         <module>CommonModel</module>
         <module>LogStarter</module>
         <module>LogCenter</module>
         <module>FileCenter</module>
-        <module>Gateway</module>
+        <module>GatewayCenter</module>
         <module>ManageBackend</module>
         <module>MonitorCenter</module>
         <module>NotificationCenter</module>

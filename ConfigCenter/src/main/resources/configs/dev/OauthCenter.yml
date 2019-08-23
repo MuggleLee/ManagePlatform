@@ -12,8 +12,8 @@ spring:
         max-wait: -1ms
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-#    url: jdbc:mysql://47.107.104.181:12345/cloud_oauth?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
-    url: jdbc:mysql://127.0.0.1:3306/cloud_oauth?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    url: jdbc:mysql://47.107.104.181:12345/cloud_oauth?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+#    url: jdbc:mysql://127.0.0.1:3306/cloud_oauth?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
     username: root
     password: 123456
     hikari:
@@ -22,7 +22,7 @@ spring:
       connection-test-query: SELECT 1
   rabbitmq:
     host: 47.107.104.181
-    port: 8085
+    port: 8084
     username: guest
     password: 123456
     virtual-host: /
