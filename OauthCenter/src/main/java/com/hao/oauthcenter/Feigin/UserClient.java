@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
  * @author Muggle Lee
  * @Date: 2019/7/24 17:53
  */
-@FeignClient("UserService")
+@FeignClient("UserCenter")
 public interface UserClient {
 
     @GetMapping(value = "/users-anon/internal",params = "username")
