@@ -93,7 +93,6 @@ public class UserServiceImpl implements UserService {
     @Transactional
     @Override
     public void updateAppUser(AppUser appUser) {
-        appUser.setPassword(passwordEncoder.encode(appUser.getPassword()));
         appUser.setUpdateTime(new Date());
         appUserDao.update(appUser);
         log.info("修改用户：{}",appUser);

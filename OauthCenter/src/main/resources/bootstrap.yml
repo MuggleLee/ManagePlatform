@@ -9,8 +9,7 @@ spring:
       profile: dev
       fail-fast: true
 server:
-#  port: 8082
-  port: 30362
+  port: 8082
 eureka:
   client:
     serviceUrl:
@@ -23,7 +22,7 @@ eureka:
     prefer-ip-address: true
 #    instance-id: 2631a8815w.wicp.vip:30362
     instance-id: ${spring.application.name}:${server.port}
-    ip-address: 2631a8815w.wicp.vip
+    ip-address: 127.0.0.1
 management:
   endpoints:
     web:

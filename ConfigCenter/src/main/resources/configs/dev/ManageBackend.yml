@@ -23,8 +23,8 @@ spring:
   mail:
     default-encoding: UTF-8
     host: smtp.163.com
-    username:
-    password:
+    username: 18320628585@163.com
+    password: QWEDSAZXC369
     protocol: smtp
     test-connection: false
 #      properties:
@@ -47,5 +47,6 @@ mybatis:
 security:
   oauth2:
     resource:
-      user-info-uri: http://47.107.104.181:8093/api-o/user-me
+#      user-info-uri: http://47.107.104.181:8093/api-o/user-me
+      user-info-uri: http://127.0.0.1:8093/api-o/user-me
       prefer-token-info: false

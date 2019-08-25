@@ -35,9 +35,8 @@ public class UserConntroller {
      * 获取当前用户的信息
      * @return
      */
-    @GetMapping("/user/current")
+    @GetMapping("/users/current")
     public LoginAppUser getLoginAppUser(){
-        System.out.println(AppUserUtils.getLoginAppUser());
         return AppUserUtils.getLoginAppUser();
     }
 
@@ -75,7 +74,7 @@ public class UserConntroller {
     }
 
     @LogAnnotation(module = "修改个人信息")
-    @PutMapping("/user/me")
+    @PutMapping("/users/me")
     public AppUser updateMe(@RequestBody AppUser appUser){
         AppUser user = AppUserUtils.getLoginAppUser();
         appUser.setId(user.getId());
@@ -89,7 +88,6 @@ public class UserConntroller {
     @LogAnnotation(module = "修改密码")
     @PutMapping(value = "/users/password",params = {"oldPassword","newPassword"})
     public void updatePassword(String oldPassword,String newPassword){
-        System.out.println("Test");
         if(StringUtils.isBlank(oldPassword)){
             throw new IllegalArgumentException("旧密码不能为空");
         }
@@ -98,8 +96,6 @@ public class UserConntroller {
         }
 
         AppUser user = AppUserUtils.getLoginAppUser();
-//        AppUser user = new AppUser();
-//        user.setId(new Long(3));
         userService.updatePassword(user.getId(),oldPassword,newPassword);
     }
 
@@ -156,8 +152,6 @@ public class UserConntroller {
         if(StringUtils.isBlank(code)){
             throw new IllegalAccessException("code不能为空");
         }
-
-//        LoginAppUser loginAppUser =
 
         LoginAppUser loginAppUser = AppUserUtils.getLoginAppUser();
         log.info("绑定手机号，key:{},code:{},username:{}", key, code, loginAppUser.getUsername());

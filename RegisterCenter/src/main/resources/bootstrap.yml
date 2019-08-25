@@ -11,8 +11,8 @@ eureka:
     eviction-interval-timer-in-ms: 30000
   client:
     service-url:
-#      dafalueZone: http://47.107.104.181:8086/eureka/
-      dafalueZone: http://localhost:8761/eureka/
+      dafalueZone: http://47.107.104.181:8086/eureka/
+#      dafalueZone: http://localhost:8761/eureka/
     #启动服务注册
     register-with-eureka: true
     #检索服务
