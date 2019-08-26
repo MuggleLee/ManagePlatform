@@ -52,7 +52,7 @@ security:
       prefer-token-info: false
 aliyun:
   accessKeyId: LTAIIwbt2zLrJ4pe
-  accessKeySecret: OdWwdqt0WB97VXX4zwn3Lpb4YK8APN
+  accessKeySecret: 
   sign:
     name1: xxx
   template:
