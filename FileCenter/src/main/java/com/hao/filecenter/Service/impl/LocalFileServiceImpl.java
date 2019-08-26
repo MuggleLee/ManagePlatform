@@ -34,7 +34,6 @@ public class LocalFileServiceImpl extends AbstractFileService {
      */
     @Value("${file.local.path}")
     private String localFilePath;
-
     @Override
     protected FileSource fileSource() {
         return FileSource.LOCAL;

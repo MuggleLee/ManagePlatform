@@ -5,8 +5,8 @@ logging:
   file: logs/${spring.application.name}.log
 spring:
   redis:
-    host: local.redis.com
-    port: 6379
+    host: 47.107.104.181
+    port: 8083
     password:
     timeout: 10s
     lettuce:
@@ -17,7 +17,7 @@ spring:
         max-wait: -1ms
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://127.0.0.1:3306/cloud_notification?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    url: jdbc:mysql://47.107.104.181:12345/cloud_oauth?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
     username: root
     password: 123456
     hikari:
@@ -26,7 +26,7 @@ spring:
       connection-test-query: SELECT 1
   rabbitmq:
     host: 47.107.104.181
-    port: 8085
+    port: 8084
     username: guest
     password: 123456
     virtual-host: /
@@ -35,24 +35,24 @@ spring:
       load-on-startup: 1
   aop:
     proxy-target-class: true
-  zipkin:
-    base-url: http://localhost:9411
-    enabled: true
-    sender:
-      type: web
+#  zipkin:
+#    base-url: http://localhost:9411
+#    enabled: true
+#    sender:
+#      type: web
 mybatis:
   type-aliases-package: com.cloud.notification.model
-  mapper-locations: classpath:/mybatis-mappers/*
+  mapper-locations: classpath:/Mappers/*
   configuration:
     mapUnderscoreToCamelCase: true
 security:
   oauth2:
     resource:
-      user-info-uri: http://local.gateway.com:8080/api-o/user-me
+      user-info-uri: http://127.0.0.1:8093/api-o/user-me
       prefer-token-info: false
 aliyun:
-  accessKeyId: xxx
-  accessKeySecret: xxx
+  accessKeyId: LTAIIwbt2zLrJ4pe
+  accessKeySecret: OdWwdqt0WB97VXX4zwn3Lpb4YK8APN
   sign:
     name1: xxx
   template:

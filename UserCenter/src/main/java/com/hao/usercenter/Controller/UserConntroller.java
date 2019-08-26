@@ -49,7 +49,7 @@ public class UserConntroller {
     /**
      * 用户查询
      */
-    @PreAuthorize("hasAuthority('bak:user:query')")
+    @PreAuthorize("hasAuthority('back:user:query')")
     @GetMapping("/users")
     public Page<AppUser> findUsers(@RequestParam Map<String,Object> params){
         return userService.findUsers(params);
@@ -58,7 +58,7 @@ public class UserConntroller {
     /**
      * 根据用户id查询用户信息
      */
-    @PreAuthorize("hasAuthority('bak:user:query')")
+    @PreAuthorize("hasAuthority('back:user:query')")
     @GetMapping("/users/{id}")
     public AppUser findUserById(@PathVariable Long id){
         return userService.findById(id);
@@ -103,7 +103,7 @@ public class UserConntroller {
      * 重置密码
      */
     @LogAnnotation(module = "重置密码")
-    @PreAuthorize("hasAuthority('bak:user:password')")
+    @PreAuthorize("hasAuthority('back:user:password')")
     @PutMapping(value = "/user/{id}/password",params = "newPassword")
     public void resetPassowrd(@PathVariable Long id,String newPassword){
         userService.updatePassword(id,null,newPassword);
@@ -114,7 +114,7 @@ public class UserConntroller {
      * @return
      */
     @LogAnnotation(module = "修改用户")
-    @PreAuthorize("hasAuthority('bak:user:update')")
+    @PreAuthorize("hasAuthority('back:user:update')")
     @PutMapping("/users")
     public void updateAppUser(@RequestBody AppUser appUser){
         userService.updateAppUser(appUser);
@@ -124,8 +124,8 @@ public class UserConntroller {
      * 设置角色
      */
     @LogAnnotation(module = "分配角色")
-    @PreAuthorize("hasAuthority('bak:user:query:role:set')")
-    @PostMapping("/user/{id}/roles")
+    @PreAuthorize("hasAuthority('back:user:role:set')")
+    @PostMapping("/users/{id}/roles")
     public void setRoleToUser(@PathVariable Long id , @RequestBody Set<Long> roleIds){
         userService.setRoleToUser(id,roleIds);
     }
@@ -134,7 +134,7 @@ public class UserConntroller {
      * 根据用户ID查询用户角色
      * @return
      */
-    @PreAuthorize("hasAnyAuthority('bak:user:query:role:set','bak:user:byuid')")
+    @PreAuthorize("hasAnyAuthority('back:user:role:set','back:user:byuid')")
     @GetMapping("/users/{id}/roles")
     public Set<SysRole> findRolesByUserId(@PathVariable Long id){
         return userService.findRolesByUserId(id);

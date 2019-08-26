@@ -39,7 +39,7 @@
 	  upload.render({
 	    elem: '#test1' //绑定元素
 	    ,accept: 'images' //允许上传的文件类型
-	    ,url: domainName + '/zuul/api-f/files' //上传接口
+	    ,url: domainName + '/api-f/files' //上传接口
 	    ,done: function(res, index, upload){
 	    	var url = res.url;
 	    	var formdata = {headImgUrl:url};

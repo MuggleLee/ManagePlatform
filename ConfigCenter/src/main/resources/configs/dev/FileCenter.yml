@@ -42,14 +42,16 @@ mybatis:
 security:
   oauth2:
     resource:
-      user-info-uri: http://47.107.104.181:8093/api-o/user-me
+#      user-info-uri: http://47.107.104.181:8093/api-o/user-me
+      user-info-uri: http://127.0.0.1:8093/api-o/user-me
       prefer-token-info: false
 file:
   local:
-    path: /Document/Github/Download
+    path: Document/Github/Download
     prefix: /statics
 #    urlPrefix: http://api.gateway.com:8080/api-f${file.local.prefix}
-    urlPrefix: http://47.107.104.181:8093/api-f${file.local.prefix}
+#    urlPrefix: http://47.107.104.181:8093/api-f${file.local.prefix}
+    urlPrefix: http://127.0.0.1:8093/api-f${file.local.prefix}
 #  aliyun:
 #    endpoint: xxx
 #    accessKeyId: xxx
