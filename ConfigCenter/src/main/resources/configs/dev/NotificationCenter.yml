@@ -7,7 +7,7 @@ spring:
   redis:
     host: 47.107.104.181
     port: 8083
-    password: 123456
+    password:
     timeout: 10s
     lettuce:
       pool:
@@ -17,7 +17,7 @@ spring:
         max-wait: -1ms
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://47.107.104.181:12345/cloud_notification?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    url: jdbc:mysql://47.107.104.181:12345/cloud_oauth?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
     username: root
     password: 123456
     hikari:
@@ -41,7 +41,7 @@ spring:
 #    sender:
 #      type: web
 mybatis:
-  type-aliases-package: com.hao.notificationcenter.Model
+  type-aliases-package: com.cloud.notification.model
   mapper-locations: classpath:/Mappers/*
   configuration:
     mapUnderscoreToCamelCase: true
@@ -54,9 +54,9 @@ aliyun:
   accessKeyId: LTAIIwbt2zLrJ4pe
   accessKeySecret: 
   sign:
-    name1: MuggleLee
+    name1: xxx
   template:
-    code1: SMS_172883578
+    code1: xxx
 sms:
   expire-minute: 15
   day-count: 30
