@@ -49,27 +49,23 @@ mybatis:
 security:
   oauth2:
     resource:
-#      user-info-uri: http://local.gateway.com:8080/api-o/user-me
 #      user-info-uri: http://127.0.0.1:8082/user-me
       user-info-uri: http://127.0.0.1:8093/api-o/user-me
 #      user-info-uri: http://47.107.104.181:8093/api-o/user-me
       prefer-token-info: false
-#wechat:
-#  domain: http://api.gateway.com:8080/api-u
-#  infos:
-#    app1:
-#      appid: xxx
-#      secret: xxx
-#    app2:
-#      appid: xxx
-#      secret: xxx
+wechat:
+  domain: http://127.0.0.1:8093/api-u
+  infos:
+    app1:
+      appid: xxx
+      secret: xxx
 ribbon:
   ReadTimeout: 10000
   ConnectTimeout: 10000
-#hystrix:
-#  command:
-#    default:
-#      execution:
-#        isolation:
-#          thread:
-#            timeoutInMilliseconds: 60000
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
