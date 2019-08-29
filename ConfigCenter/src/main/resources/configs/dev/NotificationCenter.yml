@@ -17,7 +17,7 @@ spring:
         max-wait: -1ms
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://47.107.104.181:12345/cloud_oauth?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    url: jdbc:mysql://47.107.104.181:12345/cloud_notification?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
     username: root
     password: 123456
     hikari:
@@ -41,7 +41,7 @@ spring:
 #    sender:
 #      type: web
 mybatis:
-  type-aliases-package: com.cloud.notification.model
+  type-aliases-package: com.hao.notificationcenter.Model
   mapper-locations: classpath:/Mappers/*
   configuration:
     mapUnderscoreToCamelCase: true
@@ -54,9 +54,9 @@ aliyun:
   accessKeyId: LTAIIwbt2zLrJ4pe
   accessKeySecret: 
   sign:
-    name1: xxx
+    name1: MuggleLee
   template:
-    code1: xxx
+    code1: SMS_172883578
 sms:
   expire-minute: 15
   day-count: 30
