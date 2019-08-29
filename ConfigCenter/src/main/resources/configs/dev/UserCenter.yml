@@ -57,8 +57,8 @@ wechat:
   domain: http://127.0.0.1:8093/api-u
   infos:
     app1:
-      appid: xxx
-      secret: xxx
+      appid: wx95514b72588bcf0f
+      secret: d7b223946238a897e5cfb977059ec891
 ribbon:
   ReadTimeout: 10000
   ConnectTimeout: 10000
