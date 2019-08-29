@@ -33,7 +33,6 @@ public class WechatController {
     public RedirectView toWechatAuthorize(@PathVariable String app, HttpServletRequest request,
                                           @RequestParam String toUrl) throws UnsupportedEncodingException {
         String url = wechatService.getWechatAuthorizeUrl(app, request, toUrl);
-
         return new RedirectView(url);
     }
 
