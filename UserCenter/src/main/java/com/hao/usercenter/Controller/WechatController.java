@@ -33,6 +33,7 @@ public class WechatController {
     public RedirectView toWechatAuthorize(@PathVariable String app, HttpServletRequest request,
                                           @RequestParam String toUrl) throws UnsupportedEncodingException {
         String url = wechatService.getWechatAuthorizeUrl(app, request, toUrl);
+        System.out.println(url);
         return new RedirectView(url);
     }
 
@@ -84,6 +85,7 @@ public class WechatController {
      */
     @GetMapping(value = "/login-check", params = {"tempCode", "openid"})
     public void wechatLoginCheck(String tempCode, String openid) {
+//        https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx95514b72588bcf0f &redirect_uri=http%3A%2F%2F2631a8815w.wicp.vip%3A29867%2Fwechat%2Fapp1%2Fback%3FtoUrl%3Dhttp%253A%252F%252F127.0.0.1%253A8093%252Fapi-b%252Fpages%252Fwechat%252Findex.html&response_type=code &scope=snsapi_userinfo&state=8b893277-6aea-45d1-a346-d2e33273e0d0 &uin=MTAwMjE0NzcyMA%3D%3D&key=9d288677f073f000f151e7a3792d31f456f923a241786d56f979065abb5bbfa06e2be6dbb614d9a24d74101b915976f9 &pass_ticket=JGVGBl4IHPit8SFkraV4Y2BXs8/CGuX8rRWLGYeFnB+7JSEFJtFjxE3HDVkSLBS//e5S6i3iIJdefLzUz31iVQ==
         wechatService.checkAndGetWechatUserInfo(tempCode, openid);
     }
 }

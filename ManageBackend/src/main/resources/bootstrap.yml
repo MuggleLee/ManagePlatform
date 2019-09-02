@@ -10,12 +10,13 @@ spring:
       fail-fast: true
 server:
 #  port: 8092
-  port: 30362
+  port: 25240
 eureka:
   client:
     serviceUrl:
 #      defaultZone: http://127.0.0.1:8761/eureka/
       defaultZone: http://47.107.104.181:8086/eureka/
+#      defaultZone: http://mugglelee.top:8086/eureka/
     registry-fetch-interval-seconds: 5
   instance:
     lease-expiration-duration-in-seconds: 15
