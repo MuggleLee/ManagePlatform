@@ -9,7 +9,8 @@ spring:
       profile: dev
       fail-fast: true
 server:
-  port: 8092
+#  port: 8092
+  port: 30362
 eureka:
   client:
     serviceUrl:
@@ -21,8 +22,9 @@ eureka:
     lease-renewal-interval-in-seconds: 5
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${server.port}
-    ip-address: 127.0.0.1
-management:
+#    ip-address: 127.0.0.1
+    ip-address: 2631a8815w.wicp.vip
+manasgement:
   endpoints:
     web:
       exposure:
