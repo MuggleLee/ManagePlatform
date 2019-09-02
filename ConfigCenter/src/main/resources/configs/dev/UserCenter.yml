@@ -6,7 +6,7 @@ logging:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://47.107.104.181:12345/cloud_user?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    url: jdbc:mysql://mugglelee.top:12345/cloud_user?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
 #    url: jdbc:mysql://127.0.0.1:3306/cloud_user?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
     username: root
     password: 123456
@@ -15,13 +15,13 @@ spring:
       maximum-pool-size: 20
       connection-test-query: SELECT 1
   rabbitmq:
-    host: 47.107.104.181
+    host: mugglelee.top
     port: 8084
     username: guest
     password: 123456
     virtual-host: /
   redis:
-    host: 47.107.104.181
+    host: mugglelee.top
     port: 8083
     password: 123456
     timeout: 10s
@@ -54,7 +54,7 @@ security:
 #      user-info-uri: http://47.107.104.181:8093/api-o/user-me
       prefer-token-info: false
 wechat:
-  domain: http://127.0.0.1:8093/api-u
+  domain: http://mugglelee.top:8093/api-u
   infos:
     app1:
       appid: wx95514b72588bcf0f
