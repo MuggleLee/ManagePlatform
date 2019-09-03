@@ -29,11 +29,14 @@ spring:
   mvc:
     servlet:
       load-on-startup: 1
-#  zipkin:
-#    base-url: http://localhost:9411
-#    enabled: true
-#    sender:
-#      type: web
+  zipkin:
+    base-url: http://mugglelee.top:8092
+    enabled: true
+    sender:
+      type: web
+  sleuth:
+    sampler:
+      percentage: 1
 access_token:
   store-jwt: false
   jwt-signing-key: MuggleLee=$==+_+%0%:)(:)
@@ -49,10 +52,10 @@ ribbon:
     clients: UserCenter
   ReadTimeout: 10000
   ConnectTimeout: 10000
-#hystrix:
-#  command:
-#    default:
-#      execution:
-#        isolation:
-#          thread:
-#            timeoutInMilliseconds: 60000
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000

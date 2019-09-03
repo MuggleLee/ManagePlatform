@@ -9,7 +9,7 @@ services:
       - MYSQL_DB=cloud_zipkin
       - MYSQL_USER=root
       - MYSQL_PASS=123456
-      - MYSQL_HOST=47.107.104.141
+      - MYSQL_HOST=47.107.104.181
       - MYSQL_TCP_PORT=12345
     ports:
       - 8092:9411

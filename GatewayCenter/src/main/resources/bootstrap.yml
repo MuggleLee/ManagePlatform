@@ -10,6 +10,7 @@ spring:
       fail-fast: true #是否启动快速失败功能，功能开启则优先判断config server是否正常
 server:
   port: 8093
+#  port : 54050
 eureka:
   client:
     serviceUrl:
@@ -22,6 +23,7 @@ eureka:
     lease-renewal-interval-in-seconds: 5
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${server.port}
+#    ip-address: 2631a8815w.wicp.vip
     ip-address: 127.0.0.1
 management:
   endpoints:
