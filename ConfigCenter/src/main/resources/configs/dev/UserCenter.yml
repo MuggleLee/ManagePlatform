@@ -37,11 +37,11 @@ spring:
       load-on-startup: 1
   aop:
     proxy-target-class: true
-#  zipkin:
-#    base-url: http://localhost:9411
-#    enabled: true
-#    sender:
-#      type: web
+  zipkin:
+    base-url: http://mugglelee.top:8092
+    enabled: true
+    sender:
+      type: web
 mybatis:
   type-aliases-package: com.hao.commonmodel.User
   mapper-locations: classpath:/Mapper/*
@@ -55,12 +55,13 @@ security:
 #      user-info-uri: http://47.107.104.181:8093/api-o/user-me
       prefer-token-info: false
 wechat:
-  domain: http://127.0.0.1:8093/api-u
+  domain: http://mugglelee.nat300.top/api-u
+#  domain: http://127.0.0.1:8093/api-u
 #  domain: http://mugglelee.top:8093/api-u
   infos:
     app1:
       appid: wx95514b72588bcf0f
-      secret: 34c38b0e8ee4f96c12a933ff021a7d1b22cc9d71
+      secret: d7b223946238a897e5cfb977059ec891
 ribbon:
   ReadTimeout: 10000
   ConnectTimeout: 10000
