@@ -60,7 +60,7 @@ wechat:
   infos:
     app1:
       appid: wx95514b72588bcf0f
-      secret:
+      secret: 34c38b0e8ee4f96c12a933ff021a7d1b22cc9d71
 ribbon:
   ReadTimeout: 10000
   ConnectTimeout: 10000
