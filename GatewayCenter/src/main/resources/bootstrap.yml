@@ -24,7 +24,8 @@ eureka:
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${server.port}
 #    ip-address: 2631a8815w.wicp.vip
-    ip-address: 127.0.0.1
+#    ip-address: 127.0.0.1
+    ip-address: 106.13.213.64
 management:
   endpoints:
     web:

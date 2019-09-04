@@ -7,9 +7,9 @@
         <artifactId>microservice</artifactId>
         <version>1.0</version>
     </parent>
-    <groupId>com.hao</groupId>
+    <!--<groupId>com.hao</groupId>-->
     <artifactId>oauth-center</artifactId>
-    <version>1.0</version>
+    <!--<version>1.0</version>-->
     <name>OauthCenter</name>
     <packaging>jar</packaging>
 

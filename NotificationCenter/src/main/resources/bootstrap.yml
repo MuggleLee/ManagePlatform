@@ -13,7 +13,7 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://47.107.104.181:8086/eureka/
+      defaultZone: http://mugglelee.top:8086/eureka/
 #      defaultZone: http://127.0.0.1:8761/eureka/
     registry-fetch-interval-seconds: 5
   instance:
@@ -21,7 +21,7 @@ eureka:
     lease-renewal-interval-in-seconds: 5
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${server.port}
-    ip-address: 127.0.0.1
+    ip-address: 106.13.213.64
 management:
   endpoints:
     web:
