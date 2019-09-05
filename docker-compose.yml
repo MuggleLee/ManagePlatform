@@ -12,4 +12,4 @@ services:
       - MYSQL_HOST=47.107.104.181
       - MYSQL_TCP_PORT=12345
     ports:
-      - 8092:9411
+      - 8090:9411
