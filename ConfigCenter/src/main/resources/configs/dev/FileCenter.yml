@@ -50,7 +50,7 @@ security:
       prefer-token-info: false
 file:
   local:
-    path: Document/Github/Download
+    path: D://Microserver-file
     prefix: /statics
 #    urlPrefix: http://47.107.104.181:8093/api-f${file.local.prefix}
     urlPrefix: http://127.0.0.1:8093/api-f${file.local.prefix}
