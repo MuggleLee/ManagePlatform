@@ -30,7 +30,7 @@ spring:
     servlet:
       load-on-startup: 1
   zipkin:
-    base-url: http://mugglelee.top:8092
+    base-url: http://mugglelee.top:8090
     enabled: true
     sender:
       type: web

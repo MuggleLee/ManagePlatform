@@ -10,12 +10,9 @@ spring:
       fail-fast: true
 server:
   port: 8092
-#  port: 54050
 eureka:
   client:
     serviceUrl:
-#      defaultZone: http://127.0.0.1:8761/eureka/
-#      defaultZone: http://47.107.104.181:8086/eureka/
       defaultZone: http://106.13.213.64:8086/eureka/
     registry-fetch-interval-seconds: 5
   instance:

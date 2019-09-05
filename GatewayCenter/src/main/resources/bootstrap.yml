@@ -10,22 +10,17 @@ spring:
       fail-fast: true #是否启动快速失败功能，功能开启则优先判断config server是否正常
 server:
   port: 8093
-#  port : 54050
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://47.107.104.181:8086/eureka/
-#      defaultZone: http://mugglelee.top:8086/eureka/
-#      defaultZone: http://127.0.0.1:8761/eureka/
+      defaultZone: http://106.13.213.64:8086/eureka/
     registry-fetch-interval-seconds: 5
   instance:
     lease-expiration-duration-in-seconds: 15
     lease-renewal-interval-in-seconds: 5
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${server.port}
-#    ip-address: 2631a8815w.wicp.vip
-#    ip-address: 127.0.0.1
-    ip-address: 106.13.213.64
+    ip-address: 47.107.104.181
 management:
   endpoints:
     web:
