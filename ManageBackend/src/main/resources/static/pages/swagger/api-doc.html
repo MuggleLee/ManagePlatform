@@ -43,7 +43,6 @@
             url : domainName + '/service-instances',
             async : false,
             success : function(data) {
-                console.log(data);
                 var tbody = $("#tbody");
                 tbody.empty();
                 $.each(data, function(k, v){

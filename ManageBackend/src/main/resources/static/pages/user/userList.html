@@ -192,7 +192,7 @@ layui.use(['layer','util'], function(){
 function resetPassword(id){
 	layer.open({
 			title:"重置密码",
-			content : '<input id="psw" type="text" class="form-control" value="88888888">',
+			content : '<input id="psw" type="text" class="form-control" value="" placeholder=新密码>',
 			yes : function(index, layero) {
 				$.ajax({
 					type : 'put',
