@@ -2,7 +2,8 @@
 // 正式生产为了保证网关的高可用性，肯定是部署了多个网关服务，然后用nginx反向代理的
 // 那么多个网关服务或者生产环境的话，我们这里配置的是nginx的地址
 // var domainName = "http://2631a8815w.wicp.vip:54050";
-var domainName = "http://127.0.0.1:8093";
+// var domainName = "http://127.0.0.1:8093";
+var domainName = "http://mugglelee.top:8093";
 // var domainName = "http://mugglelee.nat300.top";
 
 

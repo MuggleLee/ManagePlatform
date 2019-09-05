@@ -107,7 +107,6 @@ layui.use(['layer','util'], function(){
             		},
         			"error":function(xhr, textStatus, errorThrown){
         				var msg = xhr.responseText;
-        				console.log(msg);
         				if (xhr.status == 400) {
         					layer.msg(JSON.parse(msg).message);
         				} else if (xhr.status == 401) {

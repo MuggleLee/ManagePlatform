@@ -67,7 +67,7 @@ public class UserConntroller {
     /**
      * 注册用户
      */
-    @PostMapping("/user/register")
+    @PostMapping("/users-anon/register")
     public AppUser register(@RequestBody AppUser appUser){
         userService.addAppUser(appUser);
         return appUser;
@@ -104,7 +104,7 @@ public class UserConntroller {
      */
     @LogAnnotation(module = "重置密码")
     @PreAuthorize("hasAuthority('back:user:password')")
-    @PutMapping(value = "/user/{id}/password",params = "newPassword")
+    @PutMapping(value = "/users/{id}/password",params = "newPassword")
     public void resetPassowrd(@PathVariable Long id,String newPassword){
         userService.updatePassword(id,null,newPassword);
     }
