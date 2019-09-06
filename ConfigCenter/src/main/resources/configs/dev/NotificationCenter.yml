@@ -53,7 +53,7 @@ security:
       prefer-token-info: false
 aliyun:
   accessKeyId: LTAI4FeQVk2JCjverJCnBDCS
-  accessKeySecret: QB39JcDufB22RMVeVoEDFGhRWi74S3
+  accessKeySecret: 
   sign:
     name1: MuggleLee
   template:
