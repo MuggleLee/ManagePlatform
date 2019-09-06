@@ -6,8 +6,8 @@ logging:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://mugglelee.top:12345/cloud_file?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
-#    url: jdbc:mysql://127.0.0.1:3306/cloud_file?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    url: jdbc:mysql://106.13.216.100:12345/cloud_file?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+#    url: jdbc:mysql://mugglelee.top:12345/cloud_file?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
     username: root
     password: 123456
     hikari:
@@ -45,15 +45,13 @@ mybatis:
 security:
   oauth2:
     resource:
-#      user-info-uri: http://mugglelee.top:8093/api-o/user-me
-      user-info-uri: http://127.0.0.1:8093/api-o/user-me
+      user-info-uri: http://mugglelee.top:8093/api-o/user-me
       prefer-token-info: false
 file:
   local:
-    path: D://Microserver-file
+    path: /Microserver-file
     prefix: /statics
-#    urlPrefix: http://47.107.104.181:8093/api-f${file.local.prefix}
-    urlPrefix: http://127.0.0.1:8093/api-f${file.local.prefix}
+    urlPrefix: http://mugglelee.top:8093/api-f${file.local.prefix}
 #  aliyun:
 #    endpoint: xxx
 #    accessKeyId: xxx

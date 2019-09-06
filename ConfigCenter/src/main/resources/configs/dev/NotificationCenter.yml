@@ -17,7 +17,8 @@ spring:
         max-wait: -1ms
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://mugglelee.top:12345/cloud_notification?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    url: jdbc:mysql://106.13.216.100:12345/cloud_notification?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+#    url: jdbc:mysql://mugglelee.top:12345/cloud_notification?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
     username: root
     password: 123456
     hikari:
@@ -51,8 +52,8 @@ security:
       user-info-uri: http://mugglelee.top:8093/api-o/user-me
       prefer-token-info: false
 aliyun:
-  accessKeyId: LTAIIwbt2zLrJ4pe
-  accessKeySecret: 
+  accessKeyId: LTAI4FeQVk2JCjverJCnBDCS
+  accessKeySecret: QB39JcDufB22RMVeVoEDFGhRWi74S3
   sign:
     name1: MuggleLee
   template:

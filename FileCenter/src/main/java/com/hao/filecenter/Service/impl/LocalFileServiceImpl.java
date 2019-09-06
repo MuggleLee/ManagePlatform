@@ -51,7 +51,8 @@ public class LocalFileServiceImpl extends AbstractFileService {
         String url = urlPrefix + suffix;
         fileInfo.setPath(path);
         fileInfo.setUrl(url);
-
+        System.out.println("path: " + path);
+        System.out.println("url: " + url);
         FileUtil.saveFile(file, path);
     }
 

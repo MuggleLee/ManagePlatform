@@ -49,6 +49,9 @@ public class FileUtil {
      * @return
      */
     public static String saveFile(MultipartFile file, String path) {
+        System.out.println("------------------------------------------------------------");
+        System.out.println(path);
+        System.out.println("------------------------------------------------------------");
         try {
             File targetFile = new File(path);
             if (targetFile.exists()) {

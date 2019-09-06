@@ -49,7 +49,6 @@ public class LogServiceImpl implements LogService {
 		List<Log> list = Collections.emptyList();
 		if (total > 0) {
 			PageUtil.pageParamConver(params, true);
-
 			list = logDao.findData(params);
 		}
 		return new Page<>(total, list);
