@@ -19,38 +19,71 @@ import org.springframework.stereotype.Service;
  */
 //@Primary
 @Service
-public class LogServiceImpl implements LogService {
+public class LogServiceImpl{
 
-	@Autowired
-	private LogDao logDao;
+    /**
+     * 将日志保存到数据库<br>
+     * 注解@Async是开启异步执行
+     *
+     * @param log
+     */
+    @Async
+    public void save(Log log) {
+        if (log.getCreateTime() == null) {
+            log.setCreateTime(new Date());
+        }
+        if (log.getFlag() == null) {
+            log.setFlag(Boolean.TRUE);
+        }
 
-	/**
-	 * 将日志保存到数据库<br>
-	 * 注解@Async是开启异步执行
-	 *
-	 * @param log
-	 */
-	@Async
-	@Override
-	public void save(Log log) {
-		if (log.getCreateTime() == null) {
-			log.setCreateTime(new Date());
-		}
-		if (log.getFlag() == null) {
-			log.setFlag(Boolean.TRUE);
-		}
+        log.insert();
+    }
 
-		logDao.save(log);
-	}
+    public Page<Log> findLogs(Map<String, Object> params) {
 
-	@Override
-	public Page<Log> findLogs(Map<String, Object> params) {
-		int total = logDao.count(params);
-		List<Log> list = Collections.emptyList();
-		if (total > 0) {
-			PageUtil.pageParamConver(params, true);
-			list = logDao.findData(params);
-		}
-		return new Page<>(total, list);
-	}
+        Log log = new Log();
+        List<Log> list = log.selectAll();
+        int total = list.size();
+
+//        int total = logDao.count(params);
+//        List<Log> list = Collections.emptyList();
+//        if (total > 0) {
+//            PageUtil.pageParamConver(params, true);
+//            list = logDao.findData(params);
+//        }
+        return new Page<>(total, list);
+    }
+
+//    @Autowired
+//    private LogDao logDao;
+//
+//    /**
+//     * 将日志保存到数据库<br>
+//     * 注解@Async是开启异步执行
+//     *
+//     * @param log
+//     */
+//    @Async
+//    @Override
+//    public void save(Log log) {
+//        if (log.getCreateTime() == null) {
+//            log.setCreateTime(new Date());
+//        }
+//        if (log.getFlag() == null) {
+//            log.setFlag(Boolean.TRUE);
+//        }
+//
+//        logDao.save(log);
+//    }
+//
+//    @Override
+//    public Page<Log> findLogs(Map<String, Object> params) {
+//        int total = logDao.count(params);
+//        List<Log> list = Collections.emptyList();
+//        if (total > 0) {
+//            PageUtil.pageParamConver(params, true);
+//            list = logDao.findData(params);
+//        }
+//        return new Page<>(total, list);
+//    }
 }
