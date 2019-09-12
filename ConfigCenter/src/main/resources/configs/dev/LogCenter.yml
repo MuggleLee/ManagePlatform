@@ -6,8 +6,8 @@ logging:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://106.13.216.100:12345/cloud_log?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
-#    url: jdbc:mysql://mugglelee.top:12345/cloud_log?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+#    url: jdbc:mysql://106.13.216.100:12345/cloud_log?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    url: jdbc:mysql://mugglelee.top:12345/cloud_log?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
     username: root
     password: 123456
     hikari:
