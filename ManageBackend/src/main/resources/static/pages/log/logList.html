@@ -37,23 +37,23 @@
 										</div>
 									</form>
 	                   			</td>
-	                   		</tr> 
+	                   		</tr>
 	                    </table>
 					</div>
                 </header>
-                
+
                 <div>
                     <div class="widget-body no-padding">
                         <table id="dt-table" class="table table-striped table-bordered table-hover" style="width:100%">
                             <thead>
                                 <tr>
-                                </tr>                       
+                                </tr>
                                 <tr>
                                     <!-- <th>id</th> -->
                                     <th>username</th>
                                     <th>模块</th>
-									<th>时间</th>     
-									<th>备注</th>     
+									<th>时间</th>
+									<th>备注</th>
 									<th>状态</th>
 									<th>操作</th>
                                 </tr>
@@ -89,7 +89,7 @@ layui.use(['layer','util', 'laydate'], function(){
     laydate.render({
        elem: '#endTime'
     });
-    
+
     /*var modules = {};
     $.ajax({
 		type : 'get',
@@ -101,15 +101,15 @@ layui.use(['layer','util', 'laydate'], function(){
 				option.attr("value", key);
 				option.text(value);
 				$("#module").append(option);
-				
+
 			});
-			
+
 			modules = data;
 		}
 	});*/
-    
+
     function init(){
-    	example = 
+    	example =
         	$('#dt-table').DataTable({
             	"searching": false,
             	"processing": false,
@@ -138,6 +138,7 @@ layui.use(['layer','util', 'laydate'], function(){
         				if (xhr.status == 400) {
         					layer.msg(JSON.parse(msg).message);
         				} else if (xhr.status == 401) {
+        				    alert(localStorage.getItem("token"));
         					localStorage.removeItem("token");
         					layer.msg("token过期，请重新登录", {shift: -1, time: 1000}, function(){
                                 location.href = loginPage;
@@ -152,33 +153,33 @@ layui.use(['layer','util', 'laydate'], function(){
         				}
         			}
             	},
-            	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",	
+            	"dom": "<'dt-toolbar'r>t<'dt-toolbar-footer'<'col-sm-10 col-xs-12 hidden-xs'i><'col-xs-12 col-sm-10' p v>>",
                 "columns": [
                     /* { "data": "id", "defaultContent": ""}, */
                 	{ "data": "username", "defaultContent": ""},
-                	{ 
+                	{
                     	"data": "module",
                     	"defaultContent": "",
                     	/*"render": function (data, type, row) {
                     		return modules[data];
                     	}*/
                     },
-                    { 
+                    {
                     	"data": "createTime",
                     	"defaultContent": "",
                     	"render": function (data, type, row) {
                     		return util.toDateString(data);
                     	}
                     },
-                    { 
-                    	"data": "remark", 
+                    {
+                    	"data": "remark",
                     	"defaultContent": "",
                     	"render": function (data, type, row) {
                     		if(data != null && data != ""){
                     			if(data.length < 100){
                     				return data;
                     			}
-                    			
+
                     			var btn = $("<button class='layui-btn layui-btn-xs'><i class='layui-icon'>查看备注</i></button>");
                             	var id = "remark_" +row['id'];
                             	btn.attr("id", id);
@@ -187,7 +188,7 @@ layui.use(['layer','util', 'laydate'], function(){
                             	var showParams = btn.prop("outerHTML");
                         		return showParams;
                     		}
-                    		
+
                     		return "";
                     	}
                     },
@@ -212,7 +213,7 @@ layui.use(['layer','util', 'laydate'], function(){
                             	var showParams = btn.prop("outerHTML");
                         		return showParams;
                     		}
-                    		
+
                     		return "";
                     	}
                     }
@@ -221,8 +222,8 @@ layui.use(['layer','util', 'laydate'], function(){
     }
 
     init();
-    
-    
+
+
 });
 
 function showData(id){
@@ -233,7 +234,7 @@ function showData(id){
 		maxmin: true,
 		shadeClose: true,
 		content: $("#"+id).attr("data")
-			
+
 	});
 }
 
