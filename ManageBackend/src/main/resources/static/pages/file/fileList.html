@@ -112,7 +112,7 @@ layui.use(['layer','util', 'laydate'], function(){
             		"dataSrc": function (json) {
             			json.recordsTotal=json.total;
             			json.recordsFiltered=json.total;
-            			return json.data;
+            			return json.records;
             		},
         			"error":function(xhr, textStatus, errorThrown){
         				var msg = xhr.responseText;

@@ -1,10 +1,10 @@
 package com.hao.filecenter.Controller;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hao.commonmodel.Log.LogAnnotation;
-import com.hao.commonmodel.Common.Page;
-import com.hao.commonunits.utils.PageUtil;
 import com.hao.filecenter.Config.FileServiceFactory;
-import com.hao.filecenter.Dao.FileDao;
 import com.hao.filecenter.Model.FileInfo;
 import com.hao.filecenter.Service.FileService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,9 +12,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -54,13 +52,11 @@ public class FileController {
     public Map<String, Object> uploadLayui(@RequestParam("file") MultipartFile file, String fileSource)
             throws Exception {
         FileInfo fileInfo = upload(file, fileSource);
-
         Map<String, Object> map = new HashMap<>();
         map.put("code", 0);
         Map<String, Object> data = new HashMap<>();
         data.put("src", fileInfo.getUrl());
         map.put("data", data);
-
         return map;
     }
 
@@ -73,15 +69,12 @@ public class FileController {
     @PreAuthorize("hasAuthority('file:del')")
     @DeleteMapping("/{id}")
     public void delete(@PathVariable String id) {
-        FileInfo fileInfo = fileDao.getById(id);
+        FileInfo fileInfo = new FileInfo().selectOne(new QueryWrapper<FileInfo>().eq("id",id));
         if (fileInfo != null) {
             FileService fileService = fileServiceFactory.getFileService(fileInfo.getSource());
             fileService.delete(fileInfo);
         }
     }
-
-    @Autowired
-    private FileDao fileDao;
 
     /**
      * 文件查询
@@ -91,14 +84,18 @@ public class FileController {
      */
     @PreAuthorize("hasAuthority('file:query')")
     @GetMapping
-    public Page<FileInfo> findFiles(@RequestParam Map<String, Object> params) {
-        int total = fileDao.count(params);
-        List<FileInfo> list = Collections.emptyList();
-        if (total > 0) {
-            PageUtil.pageParamConver(params, true);
+    public IPage<FileInfo> findFiles(@RequestParam Map<String, Object> params) {
+        Integer pageNum = null == params.get("draw") ? 1 : Integer.valueOf(params.get("draw").toString());
+        IPage<FileInfo> page = new Page(pageNum,10);
+        new FileInfo().selectPage(page,null);
 
-            list = fileDao.findData(params);
-        }
-        return new Page<>(total, list);
+//        int total = fileDao.count(params);
+//        List<FileInfo> list = Collections.emptyList();
+//        if (total > 0) {
+//            PageUtil.pageParamConver(params, true);
+//
+//            list = fileDao.findData(params);
+//        }
+        return page;
     }
 }

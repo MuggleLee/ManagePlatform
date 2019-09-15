@@ -1,9 +1,8 @@
 package com.hao.logcenter.Controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.hao.commonmodel.Log.Log;
-import com.hao.commonmodel.Common.Page;
 import com.hao.logcenter.Service.LogService;
-import com.hao.logcenter.Service.impl.LogServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -14,7 +13,7 @@ import java.util.Map;
 public class LogController {
 
 	@Autowired
-	private LogServiceImpl logService;
+	private LogService logService;
 
 	@PostMapping("/logs-anon/internal")
 	public void save(@RequestBody Log log) {
@@ -40,8 +39,7 @@ public class LogController {
 	 */
 	@PreAuthorize("hasAuthority('log:query')")
 	@GetMapping("/logs")
-	public Page<Log> findLogs(@RequestParam Map<String, Object> params) {
+	public IPage<Log> findLogs(@RequestParam Map<String, Object> params) {
 		return logService.findLogs(params);
 	}
-
 }

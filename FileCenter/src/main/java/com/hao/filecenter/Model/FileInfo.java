@@ -1,12 +1,16 @@
 package com.hao.filecenter.Model;
 
+import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.Data;
 
 import java.io.Serializable;
 import java.util.Date;
 
 @Data
-public class FileInfo implements Serializable {
+@TableName("file_info")
+public class FileInfo extends Model<FileInfo> implements Serializable {
 
     private static final long serialVersionUID = -1438078028040922174L;
 
@@ -21,7 +25,9 @@ public class FileInfo implements Serializable {
     /**
      * 是否是图片
      */
+    @TableField("isImg")
     private Boolean isImg;
+    @TableField("contentType")
     private String contentType;
     private long size;
     private String path;
@@ -32,5 +38,6 @@ public class FileInfo implements Serializable {
      * @see FileSource
      */
     private String source;
+    @TableField("createTime")
     private Date createTime;
 }

@@ -138,7 +138,6 @@ layui.use(['layer','util', 'laydate'], function(){
         				if (xhr.status == 400) {
         					layer.msg(JSON.parse(msg).message);
         				} else if (xhr.status == 401) {
-        				    alert(localStorage.getItem("token"));
         					localStorage.removeItem("token");
         					layer.msg("token过期，请重新登录", {shift: -1, time: 1000}, function(){
                                 location.href = loginPage;

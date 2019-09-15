@@ -13,7 +13,6 @@ public class FileUtil {
 
     public static FileInfo getFileInfo(MultipartFile file) throws Exception {
         String md5 = fileMd5(file.getInputStream());
-
         FileInfo fileInfo = new FileInfo();
         fileInfo.setId(md5);// 将文件的md5设置为文件表的id
         fileInfo.setName(file.getOriginalFilename());
@@ -21,7 +20,6 @@ public class FileUtil {
         fileInfo.setIsImg(fileInfo.getContentType().startsWith("image/"));
         fileInfo.setSize(file.getSize());
         fileInfo.setCreateTime(new Date());
-
         return fileInfo;
     }
 
@@ -37,7 +35,6 @@ public class FileUtil {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         return null;
     }
 
@@ -49,9 +46,6 @@ public class FileUtil {
      * @return
      */
     public static String saveFile(MultipartFile file, String path) {
-        System.out.println("------------------------------------------------------------");
-        System.out.println(path);
-        System.out.println("------------------------------------------------------------");
         try {
             File targetFile = new File(path);
             if (targetFile.exists()) {
@@ -62,12 +56,10 @@ public class FileUtil {
                 targetFile.getParentFile().mkdirs();
             }
             file.transferTo(targetFile);
-
             return path;
         } catch (Exception e) {
             e.printStackTrace();
         }
-
         return null;
     }
 
@@ -88,10 +80,8 @@ public class FileUtil {
                     file.getParentFile().delete();
                 }
             }
-
             return flag;
         }
-
         return false;
     }
 }

@@ -3,7 +3,6 @@ package com.hao.logcenter.Consumer;
 import com.hao.commonmodel.Log.Log;
 import com.hao.commonmodel.Log.constants.LogQueue;
 import com.hao.logcenter.Service.LogService;
-import com.hao.logcenter.Service.impl.LogServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
@@ -21,7 +20,7 @@ public class LogConsumer {
 	private static final Logger logger = LoggerFactory.getLogger(LogConsumer.class);
 
 	@Autowired
-	private LogServiceImpl logService;
+	private LogService logService;
 
 	/**
 	 * 处理消息

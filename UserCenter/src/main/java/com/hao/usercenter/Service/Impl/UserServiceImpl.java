@@ -1,5 +1,6 @@
 package com.hao.usercenter.Service.Impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.hao.commonmodel.User.*;
 import com.hao.commonmodel.User.constants.CredentialType;
 import com.hao.commonmodel.User.constants.UserType;
@@ -9,6 +10,8 @@ import com.hao.commonunits.utils.PhoneUtil;
 import com.hao.usercenter.Dao.AppUserDao;
 import com.hao.usercenter.Dao.UserCredentialsDao;
 import com.hao.usercenter.Dao.UserRoleDao;
+import com.hao.usercenter.Mapper.SysPermissionMapper;
+import com.hao.usercenter.Mapper.SysRoleMapper;
 import com.hao.usercenter.Service.SysPermissionService;
 import com.hao.usercenter.Service.UserService;
 import lombok.extern.slf4j.Slf4j;
@@ -29,21 +32,26 @@ import java.util.stream.Collectors;
  */
 @Slf4j
 @Service
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl{
 
-    @Autowired
-    private AppUserDao appUserDao;
+//    @Autowired
+//    private AppUserDao appUserDao;
     @Autowired
     private BCryptPasswordEncoder passwordEncoder;
+//    @Autowired
+//    private SysPermissionService sysPermissionService;
+
     @Autowired
-    private SysPermissionService sysPermissionService;
+    private SysRoleMapper sysRoleMapper;
+
     @Autowired
-    private UserRoleDao userRoleDao;
-    @Autowired
-    private UserCredentialsDao userCredentialsDao;
+    private SysPermissionMapper sysPermissionMapper;
+//    @Autowired
+//    private UserRoleDao userRoleDao;
+//    @Autowired
+//    private UserCredentialsDao userCredentialsDao;
 
     @Transactional
-    @Override
     public void addAppUser(AppUser appUser) {
         String username = appUser.getUsername();
         if (StringUtils.isBlank(username)) {
@@ -74,7 +82,8 @@ public class UserServiceImpl implements UserService {
             appUser.setType(UserType.APP.name());
         }
 
-        UserCredential userCredential = userCredentialsDao.findByUsername(appUser.getUsername());
+        UserCredential userCredential = new UserCredential().selectOne(new QueryWrapper<UserCredential>().eq("username", appUser.getUsername()));
+
         if (userCredential != null) {
             throw new IllegalArgumentException("用户名已存在");
         }
@@ -84,119 +93,124 @@ public class UserServiceImpl implements UserService {
         appUser.setCreateTime(new Date());
         appUser.setUpdateTime(appUser.getCreateTime());
 
-        appUserDao.save(appUser);
-        userCredentialsDao
-                .save(new UserCredential(appUser.getUsername(), CredentialType.USERNAME.name(), appUser.getId()));
+        appUser.insert();
+        UserCredential.builder()
+                .username(username)
+                .type(CredentialType.USERNAME.name())
+                .userId(appUser.getId())
+                .build()
+                .insert();
         log.info("添加用户：{}", appUser);
     }
 
     @Transactional
-    @Override
     public void updateAppUser(AppUser appUser) {
         appUser.setUpdateTime(new Date());
-        appUserDao.update(appUser);
-        log.info("修改用户：{}",appUser);
+        appUser.updateById();
+        log.info("修改用户：{}", appUser);
     }
 
     @Transactional
-    @Override
     public LoginAppUser findByUserName(String userName) {
+        AppUser appUser = new AppUser().selectOne(new QueryWrapper<AppUser>().eq("username", userName));
 
-        AppUser appUser = userCredentialsDao.findUserByUsername(userName);
-
-        if(appUser != null){
+        if (appUser != null) {
             LoginAppUser loginAppUser = new LoginAppUser();
-            BeanUtils.copyProperties(appUser,loginAppUser);
-            Set<SysRole> sysRoles = userRoleDao.findRolesByUserId(appUser.getId());
+            BeanUtils.copyProperties(appUser, loginAppUser);
+            Set<SysRole> sysRoles = sysRoleMapper.getSysRoles(new QueryWrapper<SysRole>().eq("id", appUser.getId().toString()));
+//            Set<SysRole> sysRoles = userRoleDao.findRolesByUserId(appUser.getId());
             loginAppUser.setSysRoles(sysRoles);//设置角色
 
-            if(!CollectionUtils.isEmpty(sysRoles)){
+            if (!CollectionUtils.isEmpty(sysRoles)) {
                 Set<Long> roleIds = sysRoles.parallelStream().map(SysRole::getId).collect(Collectors.toSet());
-                Set<SysPermission> sysPermissions = sysPermissionService.findByRoleIds(roleIds);
-                if(!CollectionUtils.isEmpty(sysPermissions)){
+//                String roleIdsString = roleIds.toString().replace("[","(").replace("]",")");
+//                System.out.println(roleIdsString);
+                Set<SysPermission> sysPermissions = sysPermissionMapper.findByRoleIds(new QueryWrapper<SysRolePermission>().in("roleId",roleIds));
+//                Set<SysPermission> sysPermissions = sysPermissionService.findByRoleIds(roleIds);
+                if (!CollectionUtils.isEmpty(sysPermissions)) {
                     Set<String> permissions = sysPermissions.parallelStream().map(SysPermission::getPermission).collect(Collectors.toSet());
                     loginAppUser.setPermissions(permissions);
                 }
             }
-            log.info("LoginAppUser：{}",loginAppUser);
+            log.info("LoginAppUser：{}", loginAppUser);
             return loginAppUser;
         }
         return null;
     }
-
-    @Override
-    public AppUser findById(Long id) {
-        return appUserDao.findById(id);
-    }
-
-    @Transactional
-    @Override
-    public void setRoleToUser(Long id, Set<Long> roleIds) {
-        AppUser appUser = appUserDao.findById(id);
-        if (appUser == null) {
-            throw new IllegalArgumentException("用户不存在");
-        }
-
-        userRoleDao.deleteUserRole(id, null);
-        if (!CollectionUtils.isEmpty(roleIds)) {
-            roleIds.forEach(roleId -> {
-                userRoleDao.saveUserRoles(id, roleId);
-            });
-        }
-
-        log.info("修改用户：{}的角色，{}", appUser.getUsername(), roleIds);
-    }
-
-    @Transactional
-    @Override
-    public void updatePassword(Long id, String oldPassword, String newPassword) {
-        AppUser appUser = appUserDao.findById(id);
-        if(StringUtils.isNoneBlank(oldPassword)){
-            if(!passwordEncoder.matches(oldPassword,appUser.getPassword())){
-                throw new IllegalArgumentException("旧密码错误");
-            }
-        }
-
-        AppUser user = new AppUser();
-        user.setPassword(passwordEncoder.encode(newPassword));
-        user.setId(id);
-        user.setUpdateTime(new Date());
-        appUserDao.update(user);
-        log.info("修改密码：{}", user);
-    }
-
-    @Override
-    public Page<AppUser> findUsers(Map<String, Object> params) {
-        int total = appUserDao.count(params);
-        List<AppUser> list = Collections.emptyList();
-        if (total > 0) {
-            PageUtil.pageParamConver(params, true);
-
-            list = appUserDao.findData(params);
-        }
-        return new Page<>(total, list);
-    }
-
-    @Override
-    public Set<SysRole> findRolesByUserId(Long id) {
-        return userRoleDao.findRolesByUserId(id);
-    }
-
-    @Transactional
-    @Override
-    public void bindingPhone(Long userId, String phone) {
-        UserCredential userCredential = userCredentialsDao.findByUsername(phone);
-        if (userCredential != null) {
-            throw new IllegalArgumentException("手机号已被绑定");
-        }
-
-        AppUser appUser = appUserDao.findById(userId);
-        appUser.setPhone(phone);
-
-        updateAppUser(appUser);
-        log.info("绑定手机号成功,username:{}，phone:{}", appUser.getUsername(), phone);
-
-        // 绑定成功后，将手机号存到用户凭证表，后续可通过手机号+密码或者手机号+短信验证码登陆
-        userCredentialsDao.save(new UserCredential(phone, CredentialType.PHONE.name(), userId));
-    }
+//
+//    @Override
+//    public AppUser findById(Long id) {
+//        return appUserDao.findById(id);
+//    }
+//
+//    @Transactional
+//    @Override
+//    public void setRoleToUser(Long id, Set<Long> roleIds) {
+//        AppUser appUser = appUserDao.findById(id);
+//        if (appUser == null) {
+//            throw new IllegalArgumentException("用户不存在");
+//        }
+//
+//        userRoleDao.deleteUserRole(id, null);
+//        if (!CollectionUtils.isEmpty(roleIds)) {
+//            roleIds.forEach(roleId -> {
+//                userRoleDao.saveUserRoles(id, roleId);
+//            });
+//        }
+//
+//        log.info("修改用户：{}的角色，{}", appUser.getUsername(), roleIds);
+//    }
+//
+//    @Transactional
+//    @Override
+//    public void updatePassword(Long id, String oldPassword, String newPassword) {
+//        AppUser appUser = appUserDao.findById(id);
+//        if (StringUtils.isNoneBlank(oldPassword)) {
+//            if (!passwordEncoder.matches(oldPassword, appUser.getPassword())) {
+//                throw new IllegalArgumentException("旧密码错误");
+//            }
+//        }
+//
+//        AppUser user = new AppUser();
+//        user.setPassword(passwordEncoder.encode(newPassword));
+//        user.setId(id);
+//        user.setUpdateTime(new Date());
+//        appUserDao.update(user);
+//        log.info("修改密码：{}", user);
+//    }
+//
+//    @Override
+//    public Page<AppUser> findUsers(Map<String, Object> params) {
+//        int total = appUserDao.count(params);
+//        List<AppUser> list = Collections.emptyList();
+//        if (total > 0) {
+//            PageUtil.pageParamConver(params, true);
+//
+//            list = appUserDao.findData(params);
+//        }
+//        return new Page<>(total, list);
+//    }
+//
+//    @Override
+//    public Set<SysRole> findRolesByUserId(Long id) {
+//        return userRoleDao.findRolesByUserId(id);
+//    }
+//
+//    @Transactional
+//    @Override
+//    public void bindingPhone(Long userId, String phone) {
+//        UserCredential userCredential = userCredentialsDao.findByUsername(phone);
+//        if (userCredential != null) {
+//            throw new IllegalArgumentException("手机号已被绑定");
+//        }
+//
+//        AppUser appUser = appUserDao.findById(userId);
+//        appUser.setPhone(phone);
+//
+//        updateAppUser(appUser);
+//        log.info("绑定手机号成功,username:{}，phone:{}", appUser.getUsername(), phone);
+//
+//        // 绑定成功后，将手机号存到用户凭证表，后续可通过手机号+密码或者手机号+短信验证码登陆
+//        userCredentialsDao.save(new UserCredential(phone, CredentialType.PHONE.name(), userId));
+//    }
 }
