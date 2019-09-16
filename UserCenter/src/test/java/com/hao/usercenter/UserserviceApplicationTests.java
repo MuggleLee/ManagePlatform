@@ -73,6 +73,7 @@ public class UserserviceApplicationTests {
 //        sysRoleService.setPermissionToRole(1L,null);
         Set<Long> set = new TreeSet();
         set.add(36L);
+        set.add(37L);
         sysRoleService.setPermissionToRole(2L,set);
     }
 }
