@@ -1,4 +1,4 @@
-package com.hao.usercenter.Config;
+package com.hao.usercenter.config;
 
 import javax.servlet.http.HttpServletResponse;
 

@@ -1,8 +1,8 @@
 package com.hao.managebackend.Controller;
 
-import com.hao.commonmodel.Log.LogAnnotation;
-import com.hao.commonmodel.User.LoginAppUser;
-import com.hao.commonmodel.User.SysRole;
+import com.hao.commonmodel.log.LogAnnotation;
+import com.hao.commonmodel.user.LoginAppUser;
+import com.hao.commonmodel.user.SysRole;
 import com.hao.commonunits.utils.AppUserUtils;
 import com.hao.managebackend.Model.Menu;
 import com.hao.managebackend.Service.MenuService;

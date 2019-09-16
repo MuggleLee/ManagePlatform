@@ -1,4 +1,4 @@
-package com.hao.commonmodel.Log;
+package com.hao.commonmodel.log;
 
 import java.io.Serializable;
 import java.util.Date;

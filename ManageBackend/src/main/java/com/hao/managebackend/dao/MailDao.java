@@ -1,6 +1,6 @@
 package com.hao.managebackend.Dao;
 
-import com.hao.commonmodel.Mail.Mail;
+import com.hao.commonmodel.mail.Mail;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Options;

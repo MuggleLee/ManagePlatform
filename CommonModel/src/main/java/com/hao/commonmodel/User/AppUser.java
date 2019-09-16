@@ -1,4 +1,4 @@
-package com.hao.commonmodel.User;
+package com.hao.commonmodel.user;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -20,6 +20,7 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @TableName("app_user")
+@Builder
 public class AppUser extends Model<AppUser> implements Serializable {
 
     @TableId(type = IdType.AUTO)

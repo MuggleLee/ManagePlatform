@@ -1,6 +1,6 @@
 package com.hao.logstarter.autoconfigure;
 
-import com.hao.commonmodel.Log.constants.LogQueue;
+import com.hao.commonmodel.log.constants.LogQueue;
 import org.springframework.amqp.core.AmqpTemplate;
 import org.springframework.amqp.core.Queue;
 import org.springframework.beans.factory.annotation.Autowired;

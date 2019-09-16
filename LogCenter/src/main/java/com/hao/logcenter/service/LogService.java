@@ -6,7 +6,7 @@ import java.util.Map;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.hao.commonmodel.Log.Log;
+import com.hao.commonmodel.log.Log;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 

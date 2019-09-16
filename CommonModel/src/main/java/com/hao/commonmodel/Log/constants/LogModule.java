@@ -1,4 +1,4 @@
-package com.hao.commonmodel.Log.constants;
+package com.hao.commonmodel.log.constants;
 
 import java.util.HashMap;
 import java.util.Map;

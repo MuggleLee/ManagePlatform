@@ -1,4 +1,4 @@
-package com.hao.commonmodel.User;
+package com.hao.commonmodel.user;
 
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;

@@ -1,4 +1,4 @@
-package com.hao.commonmodel.Log;
+package com.hao.commonmodel.log;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

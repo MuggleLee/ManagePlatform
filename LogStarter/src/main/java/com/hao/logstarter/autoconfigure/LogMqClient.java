@@ -1,8 +1,8 @@
 package com.hao.logstarter.autoconfigure;
 
-import com.hao.commonmodel.Log.Log;
-import com.hao.commonmodel.Log.constants.LogQueue;
-import com.hao.commonmodel.User.LoginAppUser;
+import com.hao.commonmodel.log.Log;
+import com.hao.commonmodel.log.constants.LogQueue;
+import com.hao.commonmodel.user.LoginAppUser;
 import com.hao.commonunits.utils.AppUserUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;

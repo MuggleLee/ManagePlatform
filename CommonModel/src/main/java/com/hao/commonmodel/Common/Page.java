@@ -1,4 +1,4 @@
-package com.hao.commonmodel.Common;
+package com.hao.commonmodel.common;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,8 +1,8 @@
 package com.hao.managebackend.Controller;
 
-import com.hao.commonmodel.Common.Page;
-import com.hao.commonmodel.Log.LogAnnotation;
-import com.hao.commonmodel.Mail.Mail;
+import com.hao.commonmodel.common.Page;
+import com.hao.commonmodel.log.LogAnnotation;
+import com.hao.commonmodel.mail.Mail;
 import com.hao.managebackend.Service.MailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;

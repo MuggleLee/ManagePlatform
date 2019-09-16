@@ -1,6 +1,6 @@
-package com.hao.usercenter.Config;
+package com.hao.usercenter.config;
 
-import com.hao.commonmodel.User.WechatInfo;
+import com.hao.commonmodel.user.WechatInfo;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.boot.context.properties.ConfigurationProperties;

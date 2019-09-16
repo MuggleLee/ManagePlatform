@@ -1,9 +1,9 @@
-package com.hao.usercenter.Mapper;
+package com.hao.usercenter.mapper;
 
 import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
-import com.hao.commonmodel.User.SysPermission;
+import com.hao.commonmodel.user.SysPermission;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 

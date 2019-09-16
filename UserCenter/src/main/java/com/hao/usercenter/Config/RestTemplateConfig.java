@@ -1,4 +1,4 @@
-package com.hao.usercenter.Config;
+package com.hao.usercenter.config;
 
 import org.apache.http.client.HttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;

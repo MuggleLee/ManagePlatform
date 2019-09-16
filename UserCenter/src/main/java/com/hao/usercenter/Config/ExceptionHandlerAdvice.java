@@ -1,4 +1,4 @@
-package com.hao.usercenter.Config;
+package com.hao.usercenter.config;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;

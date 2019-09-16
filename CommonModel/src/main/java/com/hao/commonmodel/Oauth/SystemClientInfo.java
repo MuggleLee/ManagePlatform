@@ -1,4 +1,4 @@
-package com.hao.commonmodel.Oauth;
+package com.hao.commonmodel.oauth;
 
 /**
  * 自己系统的client信息

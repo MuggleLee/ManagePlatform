@@ -1,4 +1,4 @@
-package com.hao.commonmodel.Mail;
+package com.hao.commonmodel.mail;
 
 import lombok.Data;
 

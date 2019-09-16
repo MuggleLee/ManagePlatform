@@ -1,4 +1,4 @@
-package com.hao.usercenter.Config;
+package com.hao.usercenter.config;
 
 import org.springframework.session.data.redis.config.annotation.web.http.EnableRedisHttpSession;
 

@@ -1,9 +1,9 @@
-//package com.hao.usercenter.Controller;
+//package com.hao.usercenter.controller;
 //
-//import com.hao.commonmodel.Log.LogAnnotation;
-//import com.hao.commonmodel.User.SysPermission;
-//import com.hao.commonmodel.Common.Page;
-//import com.hao.usercenter.Service.SysPermissionService;
+//import com.hao.commonmodel.log.LogAnnotation;
+//import com.hao.commonmodel.user.SysPermission;
+//import com.hao.commonmodel.common.Page;
+//import com.hao.usercenter.service.SysPermissionService;
 //import org.apache.commons.lang3.StringUtils;
 //import org.springframework.beans.factory.annotation.Autowired;
 //import org.springframework.security.access.prepost.PreAuthorize;

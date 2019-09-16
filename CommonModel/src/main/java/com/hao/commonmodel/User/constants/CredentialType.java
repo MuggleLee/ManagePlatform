@@ -1,4 +1,4 @@
-package com.hao.commonmodel.User.constants;
+package com.hao.commonmodel.user.constants;
 
 /**
  * 用户账号类型

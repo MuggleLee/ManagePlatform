@@ -6,10 +6,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.CompletableFuture;
 
-import com.hao.commonmodel.Log.Log;
-import com.hao.commonmodel.Log.LogAnnotation;
-import com.hao.commonmodel.Log.constants.LogQueue;
-import com.hao.commonmodel.User.LoginAppUser;
+import com.hao.commonmodel.log.Log;
+import com.hao.commonmodel.log.LogAnnotation;
+import com.hao.commonmodel.log.constants.LogQueue;
+import com.hao.commonmodel.user.LoginAppUser;
 import com.hao.commonunits.utils.AppUserUtils;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
@@ -36,7 +36,7 @@ public class LogAop {
     /**
      * 环绕带注解 @LogAnnotation的方法做aop
      */
-    @Around(value = "@annotation(com.hao.commonmodel.Log.LogAnnotation)")
+    @Around(value = "@annotation(com.hao.commonmodel.log.LogAnnotation)")
     public Object logSave(ProceedingJoinPoint joinPoint) throws Throwable {
         Log log = new Log();
         log.setCreateTime(new Date());

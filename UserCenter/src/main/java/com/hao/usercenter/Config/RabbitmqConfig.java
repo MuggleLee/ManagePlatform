@@ -1,6 +1,6 @@
-package com.hao.usercenter.Config;
+package com.hao.usercenter.config;
 
-import com.hao.commonmodel.User.constants.UserCenterMq;
+import com.hao.commonmodel.user.constants.UserCenterMq;
 import org.springframework.amqp.core.TopicExchange;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,7 +1,7 @@
 package com.hao.managebackend.Service;
 
-import com.hao.commonmodel.Common.Page;
-import com.hao.commonmodel.Mail.Mail;
+import com.hao.commonmodel.common.Page;
+import com.hao.commonmodel.mail.Mail;
 
 import java.util.Map;
 

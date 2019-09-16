@@ -1,7 +1,7 @@
 package com.hao.managebackend.Controller;
 
-import com.hao.commonmodel.Log.LogAnnotation;
-import com.hao.commonmodel.Common.Page;
+import com.hao.commonmodel.log.LogAnnotation;
+import com.hao.commonmodel.common.Page;
 import com.hao.managebackend.Model.BlackIP;
 import com.hao.managebackend.Service.BlackIPService;
 import org.springframework.beans.factory.annotation.Autowired;

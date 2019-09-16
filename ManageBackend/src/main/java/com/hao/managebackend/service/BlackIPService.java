@@ -1,7 +1,7 @@
 package com.hao.managebackend.Service;
 
 
-import com.hao.commonmodel.Common.Page;
+import com.hao.commonmodel.common.Page;
 import com.hao.managebackend.Model.BlackIP;
 
 import java.util.Map;

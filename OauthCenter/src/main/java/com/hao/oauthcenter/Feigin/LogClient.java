@@ -1,6 +1,6 @@
 package com.hao.oauthcenter.Feigin;
 
-import com.hao.commonmodel.Log.Log;
+import com.hao.commonmodel.log.Log;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

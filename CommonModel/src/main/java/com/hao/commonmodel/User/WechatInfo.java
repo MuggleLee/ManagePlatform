@@ -1,4 +1,4 @@
-package com.hao.commonmodel.User;
+package com.hao.commonmodel.user;
 
 import lombok.Getter;
 import lombok.Setter;

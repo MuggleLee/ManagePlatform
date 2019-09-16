@@ -1,6 +1,6 @@
 package com.hao.managebackend.Service.Impl;
 
-import com.hao.commonmodel.Common.Page;
+import com.hao.commonmodel.common.Page;
 import com.hao.commonunits.utils.PageUtil;
 import com.hao.managebackend.Dao.BlackIPDao;
 import com.hao.managebackend.Model.BlackIP;

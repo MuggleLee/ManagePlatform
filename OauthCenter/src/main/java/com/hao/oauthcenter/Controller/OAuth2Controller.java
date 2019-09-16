@@ -1,6 +1,6 @@
 package com.hao.oauthcenter.Controller;
 
-import com.hao.commonmodel.Log.Log;
+import com.hao.commonmodel.log.Log;
 import com.hao.oauthcenter.Feigin.LogClient;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
