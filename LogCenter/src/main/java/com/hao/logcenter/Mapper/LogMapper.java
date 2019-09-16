@@ -1,7 +1,7 @@
 package com.hao.logcenter.Mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.hao.commonmodel.Log.Log;
+import com.hao.commonmodel.log.Log;
 
 /**
  * @author Muggle Lee

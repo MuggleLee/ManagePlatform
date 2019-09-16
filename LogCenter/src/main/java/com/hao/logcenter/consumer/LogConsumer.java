@@ -1,7 +1,7 @@
 package com.hao.logcenter.Consumer;
 
-import com.hao.commonmodel.Log.Log;
-import com.hao.commonmodel.Log.constants.LogQueue;
+import com.hao.commonmodel.log.Log;
+import com.hao.commonmodel.log.constants.LogQueue;
 import com.hao.logcenter.Service.LogService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

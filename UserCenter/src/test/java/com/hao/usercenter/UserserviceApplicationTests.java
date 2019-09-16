@@ -2,7 +2,9 @@ package com.hao.usercenter;
 
 import com.hao.commonmodel.user.SysPermission;
 import com.hao.usercenter.service.SysPermissionService;
+import com.hao.usercenter.service.SysRoleService;
 import com.hao.usercenter.service.UserService;
+import org.apache.commons.collections.CollectionUtils;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,9 @@ public class UserserviceApplicationTests {
     @Autowired
     SysPermissionService sysPermissionService;
 
+    @Autowired
+    private SysRoleService sysRoleService;
+
     @Test
     public void UserTest() throws IllegalAccessException {
 //        AppUser appUser = new AppUser();
@@ -32,10 +37,16 @@ public class UserserviceApplicationTests {
 //        appUser.setEnabled(Boolean.TRUE);
 //        appUser.setType("hao");
 //        userService.updateAppUser(appUser);
-        Set set = new TreeSet();
-        set.add("1");
-        set.add("2");
-        set.add("3");
+//        Set set = new TreeSet();
+//        set.add("1");
+//        set.add("2");
+//        set.add("3");
+//
+//        Set set2 = new TreeSet();
+//        set2.add("2");
+//        set2.add("3");
+//        set2.add("4");
+//        System.out.println(CollectionUtils.union(set,set2));
 //        String setString = set.toString();
 //        System.out.println(setString.substring(1,setString.length()-1));
 //        System.out.println("Test: " + userService.findByUserName("MuggleLee").toString());
@@ -58,6 +69,10 @@ public class UserserviceApplicationTests {
 //        sysPermission.setName("Test1");
 //        sysPermission.setPermission("Test1");
 //        sysPermissionService.update(sysPermission);
-        sysPermissionService.delete(36L);
+//        sysPermissionService.delete(36L);
+//        sysRoleService.setPermissionToRole(1L,null);
+        Set<Long> set = new TreeSet();
+        set.add(36L);
+        sysRoleService.setPermissionToRole(2L,set);
     }
 }

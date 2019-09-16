@@ -34,7 +34,7 @@ public class Mail implements Serializable {
     /**
      * 发送状态
      *
-     * @see com.hao.commonmodel.Mail.Constants.MailStatus
+     * @see com.hao.commonmodel.mail.Constants.MailStatus
      */
     private Integer status;
     /**

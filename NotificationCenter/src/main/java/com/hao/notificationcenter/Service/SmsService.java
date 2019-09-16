@@ -3,7 +3,7 @@ package com.hao.notificationcenter.Service;
 import java.util.Map;
 
 import com.aliyuncs.dysmsapi.model.v20170525.SendSmsResponse;
-import com.hao.commonmodel.Common.Page;
+import com.hao.commonmodel.common.Page;
 import com.hao.notificationcenter.Model.Sms;
 
 public interface SmsService {

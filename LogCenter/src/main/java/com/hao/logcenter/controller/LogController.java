@@ -1,7 +1,7 @@
 package com.hao.logcenter.Controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.hao.commonmodel.Log.Log;
+import com.hao.commonmodel.log.Log;
 import com.hao.logcenter.Service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -28,7 +28,7 @@ public class LogController {
 	@PreAuthorize("hasAuthority('log:query')")
 	@GetMapping("/logs-modules")
 	public Map<String, String> logModule() {
-		return com.hao.commonmodel.Log.constants.LogModule.MODULES;
+		return com.hao.commonmodel.log.constants.LogModule.MODULES;
 	}
 
 	/**

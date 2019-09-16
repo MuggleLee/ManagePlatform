@@ -5,7 +5,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
-import com.hao.commonmodel.Common.Page;
+import com.hao.commonmodel.common.Page;
 import com.hao.commonunits.utils.PageUtil;
 import com.hao.notificationcenter.Dao.SmsDao;
 import com.hao.notificationcenter.Model.Sms;

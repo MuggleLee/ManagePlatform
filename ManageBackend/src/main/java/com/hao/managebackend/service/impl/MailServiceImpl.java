@@ -1,9 +1,9 @@
 package com.hao.managebackend.Service.Impl;
 
-import com.hao.commonmodel.Common.Page;
-import com.hao.commonmodel.Mail.Constants.MailStatus;
-import com.hao.commonmodel.Mail.Mail;
-import com.hao.commonmodel.User.AppUser;
+import com.hao.commonmodel.common.Page;
+import com.hao.commonmodel.mail.Constants.MailStatus;
+import com.hao.commonmodel.mail.Mail;
+import com.hao.commonmodel.user.AppUser;
 import com.hao.commonunits.utils.AppUserUtils;
 import com.hao.commonunits.utils.PageUtil;
 import com.hao.managebackend.Dao.MailDao;

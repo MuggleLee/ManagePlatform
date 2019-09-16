@@ -2,7 +2,7 @@ package com.hao.notificationcenter.Controller;
 
 import java.util.Map;
 
-import com.hao.commonmodel.Common.Page;
+import com.hao.commonmodel.common.Page;
 import com.hao.commonunits.utils.PhoneUtil;
 import com.hao.notificationcenter.Model.Sms;
 import com.hao.notificationcenter.Model.VerificationCode;

@@ -1,6 +1,6 @@
 package com.hao.logcenter.Config;
 
-import com.hao.commonmodel.Log.constants.LogQueue;
+import com.hao.commonmodel.log.constants.LogQueue;
 import org.springframework.amqp.core.Queue;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
