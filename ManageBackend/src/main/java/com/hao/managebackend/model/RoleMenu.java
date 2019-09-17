@@ -16,8 +16,8 @@ import java.io.Serializable;
 public class RoleMenu extends Model<RoleMenu> implements Serializable {
 
     @TableField("roleId")
-    private Integer roleId;
+    private Long roleId;
 
     @TableField("menuId")
-    private Integer menuId;
+    private Long menuId;
 }

@@ -1,12 +1,13 @@
 package com.hao.managebackend.service;
 
-import com.hao.commonmodel.common.Page;
-import com.hao.commonmodel.mail.Constants.MailStatus;
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hao.commonmodel.mail.Mail;
+import com.hao.commonmodel.mail.constants.MailStatus;
 import com.hao.commonmodel.user.AppUser;
 import com.hao.commonunits.utils.AppUserUtils;
-import com.hao.commonunits.utils.PageUtil;
-import com.hao.managebackend.dao.MailDao;
+import com.hao.managebackend.mapper.MailMapper;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,19 +15,20 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.Collections;
 import java.util.Date;
-import java.util.List;
 import java.util.Map;
 
 @Slf4j
 @Service
-public class MailService implements MailService {
+public class MailService{
 
-    @Autowired
-    private MailDao mailDao;
+//    @Autowired
+//    private MailDao mailDao;
     @Autowired
     private SendMailService sendMailService;
+
+    @Autowired
+    private MailMapper mailMapper;
 
     /**
      * 保存邮件
@@ -34,7 +36,6 @@ public class MailService implements MailService {
      * @param mail
      */
     @Transactional
-    @Override
     public void saveMail(Mail mail) {
         if (mail.getUserId() == null || StringUtils.isBlank(mail.getUsername())) {
             AppUser appUser = AppUserUtils.getLoginAppUser();
@@ -47,14 +48,12 @@ public class MailService implements MailService {
             mail.setUserId(0L);
             mail.setUsername("系统邮件");
         }
-
         if (mail.getCreateTime() == null) {
             mail.setCreateTime(new Date());
         }
         mail.setUpdateTime(mail.getCreateTime());
         mail.setStatus(MailStatus.DRAFT);
-
-        mailDao.save(mail);
+        mail.insert();
         log.info("保存邮件：{}", mail);
     }
 
@@ -64,16 +63,13 @@ public class MailService implements MailService {
      * @param mail
      */
     @Transactional
-    @Override
     public void updateMail(Mail mail) {
-        Mail oldMail = mailDao.findById(mail.getId());
+        Mail oldMail = mail.selectById();
         if (oldMail.getStatus() == MailStatus.SUCCESS) {
             throw new IllegalArgumentException("已发送的邮件不能编辑");
         }
         mail.setUpdateTime(new Date());
-
-        mailDao.update(mail);
-
+        mail.updateById();
         log.info("修改邮件：{}", mail);
     }
 
@@ -82,30 +78,23 @@ public class MailService implements MailService {
      *
      * @param mail
      */
-    @Override
     @Async
     public void sendMail(Mail mail) {
         boolean flag = sendMailService.sendMail(mail.getToEmail(), mail.getSubject(), mail.getContent());
         mail.setSendTime(new Date());
         mail.setStatus(flag ? MailStatus.SUCCESS : MailStatus.ERROR); // 邮件发送结果
-
-        mailDao.update(mail);
+        mail.updateById();
     }
 
-    @Override
     public Mail findById(Long id) {
-        return mailDao.findById(id);
+        return mailMapper.selectOne(new QueryWrapper<Mail>().eq("id",id));
     }
 
-    @Override
-    public Page<Mail> findMails(Map<String, Object> params) {
-        int total = mailDao.count(params);
-        List<Mail> list = Collections.emptyList();
-        if (total > 0) {
-            PageUtil.pageParamConver(params, true);
-
-            list = mailDao.findData(params);
-        }
-        return new Page<>(total, list);
+    public IPage<Mail> findMails(Map<String, Object> params) {
+        // 获取页面传来的页数
+        long pageNum = null == params.get("draw") ? 1 : Long.valueOf(params.get("draw").toString());
+        Page<Mail> page = new Page<>(pageNum, 10);
+        IPage<Mail> iPage = new Mail().selectPage(page, null);
+        return iPage;
     }
 }

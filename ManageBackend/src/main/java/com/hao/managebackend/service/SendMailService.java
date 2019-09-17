@@ -14,7 +14,7 @@ import javax.mail.internet.MimeMessage;
  */
 @Slf4j
 @Service
-public class SendMailService implements SendMailService {
+public class SendMailService {
 
     @Autowired
     private JavaMailSender javaMailSender;
@@ -34,26 +34,20 @@ public class SendMailService implements SendMailService {
      * @param text    正文
      * @return
      */
-    @Override
     public boolean sendMail(String toUser, String subject, String text) {
         try {
             MimeMessage message = javaMailSender.createMimeMessage();
-
             MimeMessageHelper helper = new MimeMessageHelper(message, true);
             helper.setFrom(serverMail);
             helper.setTo(toUser);
             helper.setSubject(subject);
             helper.setText(text, true);
-
             javaMailSender.send(message);
-
             log.info("发送邮件to:{},主题：{},内容：{}", toUser, subject, text);
         } catch (Exception e) {
             log.error("", e);
-
             return Boolean.FALSE;
         }
-
         return Boolean.TRUE;
 
     }

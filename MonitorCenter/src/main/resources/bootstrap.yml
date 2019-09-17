@@ -22,7 +22,8 @@ eureka:
     lease-renewal-interval-in-seconds: 5
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${server.port}
-    ip-address: 106.13.213.64
+#    ip-address: 106.13.213.64
+    ip-address: 127.0.0.1
 management:
   endpoints:
     web:

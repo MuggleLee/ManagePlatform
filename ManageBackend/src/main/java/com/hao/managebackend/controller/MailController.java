@@ -1,8 +1,9 @@
 package com.hao.managebackend.controller;
 
-import com.hao.commonmodel.common.Page;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.hao.commonmodel.log.LogAnnotation;
 import com.hao.commonmodel.mail.Mail;
+import com.hao.managebackend.service.MailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -24,7 +25,7 @@ public class MailController {
 
     @PreAuthorize("hasAuthority('mail:query')")
     @GetMapping
-    public Page<Mail> findMails(@RequestParam Map<String, Object> params) {
+    public IPage<Mail> findMails(@RequestParam Map<String, Object> params) {
         return mailService.findMails(params);
     }
 
@@ -43,7 +44,6 @@ public class MailController {
         if (Boolean.TRUE == send) {
             mailService.sendMail(mail);
         }
-
         return mail;
     }
 
@@ -62,9 +62,6 @@ public class MailController {
         if (Boolean.TRUE == send) {
             mailService.sendMail(mail);
         }
-
         return mail;
     }
-
-
 }

@@ -1,8 +1,9 @@
 package com.hao.managebackend.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.hao.commonmodel.log.LogAnnotation;
-import com.hao.commonmodel.common.Page;
 import com.hao.managebackend.model.BlackIp;
+import com.hao.managebackend.service.BlackIPService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -49,7 +50,7 @@ public class BlackIPController {
      */
     @PreAuthorize("hasAuthority('ip:black:query')")
     @GetMapping("/blackIPs")
-    public Page<BlackIp> findBlackIPs(@RequestParam Map<String, Object> params) {
+    public IPage<BlackIp> findBlackIPs(@RequestParam Map<String, Object> params) {
         return blackIPService.findBlackIPs(params);
     }
 
@@ -62,9 +63,9 @@ public class BlackIPController {
      */
     @GetMapping("/backend-anon/internal/blackIPs")
     public Set<String> findAllBlackIPs(@RequestParam Map<String, Object> params) {
-        Page<BlackIp> page = blackIPService.findBlackIPs(params);
+        IPage<BlackIp> page = blackIPService.findBlackIPs(params);
         if (page.getTotal() > 0) {
-            return page.getData().stream().map(BlackIp::getIp).collect(Collectors.toSet());
+            return page.getRecords().stream().map(BlackIp::getIp).collect(Collectors.toSet());
         }
         return Collections.emptySet();
     }

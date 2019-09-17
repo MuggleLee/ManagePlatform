@@ -1,4 +1,4 @@
-package com.hao.logcenter.config;
+package com.hao.gatewaycenter.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,11 +16,11 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @EnableSwagger2
 public class SwaggerConfig {
 
-	@Bean
-	public Docket docket() {
-		return new Docket(DocumentationType.SWAGGER_2).groupName("日志中心swagger接口文档")
-				.apiInfo(new ApiInfoBuilder().title("日志中心swagger接口文档")
-						.contact(new Contact("MuggleLee", "", "770796059@qq.com")).version("1.0").build())
-				.select().paths(PathSelectors.any()).build();
-	}
+    @Bean
+    public Docket docket() {
+        return new Docket(DocumentationType.SWAGGER_2).groupName("网关swagger接口文档")
+                .apiInfo(new ApiInfoBuilder().title("网关swagger接口文档")
+                        .contact(new Contact("MuggleLee", "", "770796059@qq.com")).version("1.0").build())
+                .select().paths(PathSelectors.any()).build();
+    }
 }

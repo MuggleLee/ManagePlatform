@@ -1,4 +1,4 @@
-package com.hao.logcenter.Config;
+package com.hao.logcenter.config;
 
 import com.hao.commonmodel.log.constants.LogQueue;
 import org.springframework.amqp.core.Queue;

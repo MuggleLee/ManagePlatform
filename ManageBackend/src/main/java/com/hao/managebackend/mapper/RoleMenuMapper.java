@@ -2,9 +2,15 @@ package com.hao.managebackend.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.hao.managebackend.model.RoleMenu;
+import com.hao.managebackend.service.MenuService;
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.InsertProvider;
+import org.apache.ibatis.annotations.Param;
 
 import java.sql.Wrapper;
+import java.text.MessageFormat;
+import java.util.List;
+import java.util.Set;
 
 /**
  * @author Muggle Lee
@@ -12,6 +18,7 @@ import java.sql.Wrapper;
  */
 public interface RoleMenuMapper extends BaseMapper<RoleMenu> {
 
-    @Insert("insert into role_menu (roleId,menuId) values ")
-    int insertBatch(String sql);
+    @InsertProvider(type = MenuService.class,method = "insert")
+    int insertBatch(Long roleId,Set<Long> roleMenuIds);
+
 }

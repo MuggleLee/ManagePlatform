@@ -5,6 +5,7 @@ import com.hao.commonmodel.user.LoginAppUser;
 import com.hao.commonmodel.user.SysRole;
 import com.hao.commonunits.utils.AppUserUtils;
 import com.hao.managebackend.model.Menu;
+import com.hao.managebackend.service.MenuService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.util.CollectionUtils;

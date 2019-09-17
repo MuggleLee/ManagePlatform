@@ -3,6 +3,7 @@ package com.hao.managebackend.model;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
+import lombok.Builder;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -10,6 +11,7 @@ import java.util.Date;
 import java.util.List;
 
 @Data
+@Builder
 @TableName("menu")
 public class Menu extends Model<Menu> implements Serializable {
 

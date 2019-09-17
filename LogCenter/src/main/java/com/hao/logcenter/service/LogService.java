@@ -1,9 +1,8 @@
-package com.hao.logcenter.Service;
+package com.hao.logcenter.service;
 
 import java.util.Date;
 import java.util.Map;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.hao.commonmodel.log.Log;

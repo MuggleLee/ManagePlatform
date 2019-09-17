@@ -1,4 +1,4 @@
-package com.hao.logcenter.Config;
+package com.hao.logcenter.config;
 
 import javax.servlet.http.HttpServletResponse;
 

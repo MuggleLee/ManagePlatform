@@ -1,8 +1,8 @@
-package com.hao.logcenter.Controller;
+package com.hao.logcenter.controller;
 
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.hao.commonmodel.log.Log;
-import com.hao.logcenter.Service.LogService;
+import com.hao.logcenter.service.LogService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;

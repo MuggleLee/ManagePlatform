@@ -1,7 +1,9 @@
 package com.hao.managebackend.consumer;
 
+import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.hao.managebackend.config.RabbitmqConfig;
-import com.hao.managebackend.dao.RoleMenuDao;
+import com.hao.managebackend.mapper.RoleMenuMapper;
+import com.hao.managebackend.model.RoleMenu;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
@@ -17,7 +19,7 @@ import org.springframework.stereotype.Component;
 public class RoleDeleteConsumer {
 
     @Autowired
-    private RoleMenuDao roleMenuDao;
+    private RoleMenuMapper roleMenuMapper;
 
     /**
      * 接收到删除角色的消息<br>
@@ -29,7 +31,7 @@ public class RoleDeleteConsumer {
     public void roleDeleteHandler(Long roleId) {
         log.info("接收到删除角色的消息,roleId:{}", roleId);
         try {
-            roleMenuDao.delete(roleId, null);
+            roleMenuMapper.delete(new QueryWrapper<RoleMenu>().eq("",roleId));
         } catch (Exception e) {
             log.error("角色删除消息处理异常", e);
         }
