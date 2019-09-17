@@ -75,5 +75,6 @@ public class UserserviceApplicationTests {
         set.add(36L);
         set.add(37L);
         sysRoleService.setPermissionToRole(2L,set);
+//        sysRoleService.findPermissionsByRoleId(1L);
     }
 }

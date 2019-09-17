@@ -1,9 +1,9 @@
-package com.hao.oauthcenter.Service.Impl;
+package com.hao.oauthcenter.service;
 
 import com.hao.commonmodel.user.constants.CredentialType;
 import com.hao.commonmodel.user.LoginAppUser;
-import com.hao.oauthcenter.Feigin.SmsClient;
-import com.hao.oauthcenter.Feigin.UserClient;
+import com.hao.oauthcenter.feigin.SmsClient;
+import com.hao.oauthcenter.feigin.UserClient;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

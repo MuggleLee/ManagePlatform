@@ -41,11 +41,11 @@ spring:
     enabled: true
     sender:
       type: web
-mybatis:
-  type-aliases-package: com.hao.commonmodel.User
-  mapper-locations: classpath:/Mapper/*
-  configuration:
-    mapUnderscoreToCamelCase: true
+#mybatis:
+#  type-aliases-package: com.hao.commonmodel.User
+#  mapper-locations: classpath:/Mapper/*
+#  configuration:
+#    mapUnderscoreToCamelCase: true
 security:
   oauth2:
     resource:

@@ -1,4 +1,4 @@
-package com.hao.managebackend.Config;
+package com.hao.managebackend.config;
 
 import com.alibaba.fastjson.JSONObject;
 import feign.FeignException;

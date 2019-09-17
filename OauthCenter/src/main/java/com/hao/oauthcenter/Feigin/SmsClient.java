@@ -1,4 +1,4 @@
-package com.hao.oauthcenter.Feigin;
+package com.hao.oauthcenter.feigin;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

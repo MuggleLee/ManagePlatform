@@ -1,4 +1,4 @@
-package com.hao.notificationcenter.Config;
+package com.hao.notificationcenter.config;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

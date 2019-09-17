@@ -1,4 +1,4 @@
-package com.hao.managebackend.Config;
+package com.hao.managebackend.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -1,4 +1,4 @@
-package com.hao.notificationcenter.Config;
+package com.hao.notificationcenter.config;
 
 import java.util.HashMap;
 import java.util.Map;

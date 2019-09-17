@@ -1,4 +1,4 @@
-package com.hao.notificationcenter.Config;
+package com.hao.notificationcenter.config;
 
 import javax.servlet.http.HttpServletResponse;
 

@@ -1,9 +1,8 @@
-package com.hao.managebackend.Controller;
+package com.hao.managebackend.controller;
 
 import com.hao.commonmodel.log.LogAnnotation;
 import com.hao.commonmodel.common.Page;
-import com.hao.managebackend.Model.BlackIP;
-import com.hao.managebackend.Service.BlackIPService;
+import com.hao.managebackend.model.BlackIp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
@@ -26,10 +25,10 @@ public class BlackIPController {
     @LogAnnotation(module = "添加黑名单")
     @PreAuthorize("hasAuthority('ip:black:save')")
     @PostMapping("/blackIPs")
-    public void save(@RequestBody BlackIP blackIP) {
-        blackIP.setCreateTime(new Date());
+    public void save(@RequestBody BlackIp blackIp) {
+        blackIp.setCreateTime(new Date());
 
-        blackIPService.save(blackIP);
+        blackIPService.save(blackIp);
     }
 
     /**
@@ -50,7 +49,7 @@ public class BlackIPController {
      */
     @PreAuthorize("hasAuthority('ip:black:query')")
     @GetMapping("/blackIPs")
-    public Page<BlackIP> findBlackIPs(@RequestParam Map<String, Object> params) {
+    public Page<BlackIp> findBlackIPs(@RequestParam Map<String, Object> params) {
         return blackIPService.findBlackIPs(params);
     }
 
@@ -63,9 +62,9 @@ public class BlackIPController {
      */
     @GetMapping("/backend-anon/internal/blackIPs")
     public Set<String> findAllBlackIPs(@RequestParam Map<String, Object> params) {
-        Page<BlackIP> page = blackIPService.findBlackIPs(params);
+        Page<BlackIp> page = blackIPService.findBlackIPs(params);
         if (page.getTotal() > 0) {
-            return page.getData().stream().map(BlackIP::getIp).collect(Collectors.toSet());
+            return page.getData().stream().map(BlackIp::getIp).collect(Collectors.toSet());
         }
         return Collections.emptySet();
     }

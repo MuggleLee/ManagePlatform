@@ -1,4 +1,4 @@
-package com.hao.managebackend.Config;
+package com.hao.managebackend.config;
 
 import com.hao.commonunits.constant.PermitAllUrl;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;

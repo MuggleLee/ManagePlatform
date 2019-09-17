@@ -1,4 +1,4 @@
-package com.hao.oauthcenter.Config;
+package com.hao.oauthcenter.config;
 
 import com.hao.commonunits.constant.PermitAllUrl;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,4 +1,4 @@
-package com.hao.oauthcenter.Config;
+package com.hao.oauthcenter.config;
 
 import javax.servlet.http.HttpServletRequest;
 

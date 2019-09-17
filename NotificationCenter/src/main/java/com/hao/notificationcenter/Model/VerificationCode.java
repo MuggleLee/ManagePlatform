@@ -1,4 +1,4 @@
-package com.hao.notificationcenter.Model;
+package com.hao.notificationcenter.model;
 
 import java.io.Serializable;
 

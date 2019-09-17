@@ -1,9 +1,9 @@
-package com.hao.oauthcenter.Config;
+package com.hao.oauthcenter.config;
 
 import com.hao.commonmodel.user.LoginAppUser;
-import com.hao.oauthcenter.Service.Impl.RandomAuthenticationKeyGenerator;
-import com.hao.oauthcenter.Service.Impl.RedisAuthorizationCodeServices;
-import com.hao.oauthcenter.Service.Impl.RedisClientDetailsService;
+import com.hao.oauthcenter.service.RandomAuthenticationKeyGenerator;
+import com.hao.oauthcenter.service.RedisAuthorizationCodeServices;
+import com.hao.oauthcenter.service.RedisClientDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;

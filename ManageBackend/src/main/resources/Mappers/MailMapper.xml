@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.hao.managebackend.Dao.MailDao">
+<mapper namespace="com.hao.managebackend.dao.MailDao">
 
 	<update id="update">
 		update t_mail t

@@ -1,4 +1,4 @@
-package com.hao.oauthcenter.Feigin;
+package com.hao.oauthcenter.feigin;
 
 import com.hao.commonmodel.log.Log;
 import org.springframework.cloud.openfeign.FeignClient;

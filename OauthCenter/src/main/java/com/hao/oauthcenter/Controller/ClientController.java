@@ -1,9 +1,9 @@
-package com.hao.oauthcenter.Controller;
+package com.hao.oauthcenter.controller;
 
 import com.hao.commonmodel.log.LogAnnotation;
 import com.hao.commonmodel.oauth.SystemClientInfo;
 import com.hao.commonmodel.common.Page;
-import com.hao.oauthcenter.Service.Impl.RedisClientDetailsService;
+import com.hao.oauthcenter.service.RedisClientDetailsService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;

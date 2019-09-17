@@ -9,7 +9,7 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableFeignClients
 @EnableDiscoveryClient
 @SpringBootApplication
-@MapperScan("com.hao.usercenter.Mapper")
+@MapperScan("com.hao.usercenter.mapper")
 public class UserCenterApplication {
 
     public static void main(String[] args) {

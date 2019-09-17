@@ -1,4 +1,4 @@
-package com.hao.commonmodel.mail.Constants;
+package com.hao.commonmodel.mail.constants;
 
 /**
  * 邮件状态

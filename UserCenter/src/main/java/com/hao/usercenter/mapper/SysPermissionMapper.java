@@ -9,6 +9,10 @@ import org.apache.ibatis.annotations.Select;
 
 import java.util.Set;
 
+/**
+ * @author MuggleLee
+ * @date 2019/09/16
+ */
 public interface SysPermissionMapper extends BaseMapper<SysPermission> {
 
 

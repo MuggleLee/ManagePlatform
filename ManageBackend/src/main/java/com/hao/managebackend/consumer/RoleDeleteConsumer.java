@@ -1,7 +1,7 @@
-package com.hao.managebackend.Consumer;
+package com.hao.managebackend.consumer;
 
-import com.hao.managebackend.Config.RabbitmqConfig;
-import com.hao.managebackend.Dao.RoleMenuDao;
+import com.hao.managebackend.config.RabbitmqConfig;
+import com.hao.managebackend.dao.RoleMenuDao;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.amqp.rabbit.annotation.RabbitHandler;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;

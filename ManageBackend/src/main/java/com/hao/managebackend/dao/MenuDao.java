@@ -1,6 +1,6 @@
-package com.hao.managebackend.Dao;
+package com.hao.managebackend.dao;
 
-import com.hao.managebackend.Model.Menu;
+import com.hao.managebackend.model.Menu;
 import org.apache.ibatis.annotations.Delete;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;

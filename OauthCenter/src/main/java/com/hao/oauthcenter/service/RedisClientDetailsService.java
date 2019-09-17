@@ -1,4 +1,4 @@
-package com.hao.oauthcenter.Service.Impl;
+package com.hao.oauthcenter.service;
 
 import com.alibaba.fastjson.JSONObject;
 import lombok.extern.slf4j.Slf4j;

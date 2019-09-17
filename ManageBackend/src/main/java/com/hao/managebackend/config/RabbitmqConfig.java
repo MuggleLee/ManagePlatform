@@ -1,4 +1,4 @@
-package com.hao.managebackend.Config;
+package com.hao.managebackend.config;
 
 import com.hao.commonmodel.user.constants.UserCenterMq;
 import org.springframework.amqp.core.Binding;

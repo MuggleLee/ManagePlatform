@@ -1,4 +1,4 @@
-package com.hao.oauthcenter.Service.Impl;
+package com.hao.oauthcenter.service;
 
 import java.util.concurrent.TimeUnit;
 

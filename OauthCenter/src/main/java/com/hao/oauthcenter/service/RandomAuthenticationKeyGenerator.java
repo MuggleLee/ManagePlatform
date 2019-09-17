@@ -1,4 +1,4 @@
-package com.hao.oauthcenter.Service.Impl;
+package com.hao.oauthcenter.service;
 
 import org.springframework.security.oauth2.provider.OAuth2Authentication;
 import org.springframework.security.oauth2.provider.token.AuthenticationKeyGenerator;
