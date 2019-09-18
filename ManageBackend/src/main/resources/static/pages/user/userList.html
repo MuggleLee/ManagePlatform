@@ -107,7 +107,7 @@ layui.use(['layer','util'], function(){
         				d.type = $("#type").val();
             		},
             		"dataSrc": function (json) {
-                        json.recordsTotal=json.total;
+                        json.recordsTotal=json.records.length;
                         json.recordsFiltered=json.size;
             			return json.records;
             		},
