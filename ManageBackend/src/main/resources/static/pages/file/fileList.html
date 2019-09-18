@@ -110,8 +110,8 @@ layui.use(['layer','util', 'laydate'], function(){
         				d.endTime = $('#endTime').val();
             		},
             		"dataSrc": function (json) {
-            			json.recordsTotal=json.records.length;
-            			json.recordsFiltered=json.records.length;
+            			json.recordsTotal=json.total;
+            			json.recordsFiltered=json.size;
             			return json.records;
             		},
         			"error":function(xhr, textStatus, errorThrown){
