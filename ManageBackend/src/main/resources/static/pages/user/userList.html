@@ -107,9 +107,9 @@ layui.use(['layer','util'], function(){
         				d.type = $("#type").val();
             		},
             		"dataSrc": function (json) {
-            			json.recordsTotal=json.total;
-            			json.recordsFiltered=json.total;
-            			return json.data;
+            			json.recordsTotal=json.records.length;
+            			json.recordsFiltered=json.records.length;
+            			return json.records;
             		},
         			"error":function(xhr, textStatus, errorThrown){
         				var msg = xhr.responseText;

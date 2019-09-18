@@ -20,11 +20,7 @@ eureka:
     lease-renewal-interval-in-seconds: 5
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${server.port}
-    ip-address: 127.0.0.1
-#    ip-address: mugglelee.top
-mybatis-plus:
-  configuration:
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    ip-address: mugglelee.top
 manasgement:
   endpoints:
     web:

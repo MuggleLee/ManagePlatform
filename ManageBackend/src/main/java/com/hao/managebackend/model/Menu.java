@@ -29,5 +29,6 @@ public class Menu extends Model<Menu> implements Serializable {
     @TableField("updateTime")
     private Date updateTime;
 
+    @TableField(exist = false)
     private List<Menu> child;
 }

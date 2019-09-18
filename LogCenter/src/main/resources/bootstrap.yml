@@ -9,7 +9,7 @@ spring:
       profile: dev
       fail-fast: true
 server:
-  port: 31902
+  port: 8088
 eureka:
   client:
     serviceUrl:
@@ -20,7 +20,10 @@ eureka:
     lease-renewal-interval-in-seconds: 5
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${server.port}
-    ip-address: 2631a8815w.wicp.vip
+    ip-address: 106.13.216.100
+mybatis-plus:
+  configuration:
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 management:
   endpoints:
     web:

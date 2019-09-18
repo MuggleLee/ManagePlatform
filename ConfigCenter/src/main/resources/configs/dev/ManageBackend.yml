@@ -6,8 +6,7 @@ logging:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://106.13.216.100:12345/cloud_backend?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
-#    url: jdbc:mysql://mugglelee.top:12345/cloud_backend?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    url: jdbc:mysql://mugglelee.top:12345/cloud_backend?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
     username: root
     password: 123456
     hikari:
@@ -42,11 +41,9 @@ spring:
   sleuth:
     sampler:
       percentage: 1
-mybatis:
-  type-aliases-package: com.hao.managebackend.Model,com.hao.commonmodel.Mail
-  mapper-locations: classpath:/Mappers/*
-  configuration:
-    mapUnderscoreToCamelCase: true
+#mybatis-plus:
+#  configuration:
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 security:
   oauth2:
     resource:

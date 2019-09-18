@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableDiscoveryClient
 @SpringBootApplication
 @EnableTransactionManagement
-@MapperScan("com.hao.logcenter.Mapper")
+@MapperScan("com.hao.logcenter.mapper")
 public class LogCenterApplication {
 
     public static void main(String[] args) {

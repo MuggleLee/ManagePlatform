@@ -7,7 +7,7 @@ import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
 @EnableEurekaClient
 @SpringBootApplication
-@MapperScan("com.hao.filecenter.Mapper")
+@MapperScan("com.hao.filecenter.mapper")
 public class FileCenterApplication {
 
     public static void main(String[] args) {

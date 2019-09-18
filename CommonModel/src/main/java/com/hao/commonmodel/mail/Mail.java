@@ -27,6 +27,7 @@ public class Mail extends Model<Mail> implements Serializable {
     /**
      * 收件人邮件地址
      */
+    @TableField("toEmail")
     private String toEmail;
     /**
      * 标题
