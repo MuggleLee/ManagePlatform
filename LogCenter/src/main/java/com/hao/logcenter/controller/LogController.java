@@ -22,7 +22,7 @@ public class LogController {
 
 	/**
 	 * 日志模块<br>
-	 * 2018.07.29作废
+	 * 2019.07.29作废
 	 */
 	@Deprecated
 	@PreAuthorize("hasAuthority('log:query')")

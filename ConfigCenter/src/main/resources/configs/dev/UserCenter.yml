@@ -6,23 +6,23 @@ logging:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://mugglelee.top:12345/cloud_user?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    url: jdbc:mysql://mysql:3306/cloud_user?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
     username: root
-    password: 123456
+    password: qwedsazxc123
     hikari:
       minimum-idle: 5
       maximum-pool-size: 20
       connection-test-query: SELECT 1
   rabbitmq:
-    host: mugglelee.top
-    port: 8084
-    username: guest
-    password: 123456
+    host: rabbitmq
+    port: 5672
+    username: MuggleLee
+    password: 987654321lihao
     virtual-host: /
   redis:
-    host: mugglelee.top
-    port: 8083
-    password: 123456
+    host: redis
+    port: 6379
+    password: qwedsazxc123
     timeout: 10s
     lettuce:
       pool:
@@ -36,7 +36,7 @@ spring:
   aop:
     proxy-target-class: true
   zipkin:
-    base-url: http://mugglelee.top:8090
+    base-url: http://zipkin:8090
     enabled: true
     sender:
       type: web
@@ -46,14 +46,14 @@ spring:
 security:
   oauth2:
     resource:
-      user-info-uri: http://mugglelee.top:8093/api-o/user-me
+      user-info-uri: http://GatewayCenter:8093/api-o/user-me
       prefer-token-info: false
 wechat:
-  domain: http://mugglelee.top:8093/api-u
+  domain: http://GatewayCenter:8093/api-u
   infos:
     app1:
-      appid: wx95514b72588bcf0f
-      secret: d7b223946238a897e5cfb977059ec891
+      appid: 微信的appid
+      secret: 微信的secret
 ribbon:
   ReadTimeout: 10000
   ConnectTimeout: 10000

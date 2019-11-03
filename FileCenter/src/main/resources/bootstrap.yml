@@ -14,14 +14,13 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://106.13.213.64:8086/eureka/
+      defaultZone: http://RegisterCenter:8086/eureka/
     registry-fetch-interval-seconds: 5
   instance:
     lease-expiration-duration-in-seconds: 15
     lease-renewal-interval-in-seconds: 5
     prefer-ip-address: true
     instance-id: ${spring.application.name}:${server.port}
-    ip-address: 106.13.216.100
 management:
   endpoints:
     web:

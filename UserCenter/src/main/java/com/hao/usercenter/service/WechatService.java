@@ -72,7 +72,7 @@ public class WechatService {
     @Transactional
     public WechatUserInfo getWechatUserInfo(String app, HttpServletRequest request, String code, String state) {
         log.info("code:{}, state:{}", code, state);
-        checkStateLegal(state, request);
+//        checkStateLegal(state, request);
         WechatAccess wechatAccess = getWechatAccess(app, code);
         WechatUserInfo wechatUserInfo = wechatUserInfoMapper.selectOne(new QueryWrapper<WechatUserInfo>().eq("openid", wechatAccess.getOpenid()));
         if (wechatUserInfo == null) {

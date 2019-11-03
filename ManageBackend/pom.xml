@@ -90,7 +90,7 @@
                     <imageName>${project.groupId}/${project.artifactId}:${project.version}</imageName>
                     <baseImage>openjdk:8-jdk-alpine</baseImage>
                     <maintainer>MuggleLee</maintainer>
-                    <entryPoint>["java", "-jar", "/${project.build.finalName}.jar","spring.profiles.active=dev"]</entryPoint>
+                    <entryPoint>["java", "-jar", "/${project.build.finalName}.jar"]</entryPoint>
                     <resources>
                         <resource>
                             <targetPath>/</targetPath>

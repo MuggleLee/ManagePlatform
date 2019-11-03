@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Title</title>
+    <title>Login By WeChat</title>
     <link rel="stylesheet" type="text/css" media="screen" href="../../css/bootstrap.min.css">
 </head>
 <body>
@@ -16,7 +16,8 @@
 <script type="text/javascript">
     var access_token = localStorage.getItem("access_token");
     if (access_token != null && access_token.trim().length != 0) {
-        showUserInfo(access_token);
+        window.location.href = domainName + "/api-b/index.html";
+        // showUserInfo(access_token);
     } else {
         var openid = getUrlParam("openid");
         var toUrl = domainName + "/api-b/pages/wechat/index.html";
@@ -27,7 +28,6 @@
             var tempCode = getUrlParam("tempCode");
             var nickname = getUrlParam("nickname");
             var headimgurl = getUrlParam("headimgurl");
-
             if (hasUser == "1") { // 微信已绑定用户，自动登录
                 $.ajax({
                     type: 'post',
@@ -38,8 +38,8 @@
                         //将access_token和refresh_token写入本地
                         localStorage.setItem("access_token", data.access_token);
                         localStorage.setItem("refresh_token", data.refresh_token);
-
-                        showUserInfo(data.access_token);
+                        window.location.href = domainName + "/api-b/index.html";
+                        // showUserInfo(data.access_token);
                     }, error: function (xhr, textStatus, errorThrown) {
                         if (xhr.status == 401) {
                             location.href = toUrl;

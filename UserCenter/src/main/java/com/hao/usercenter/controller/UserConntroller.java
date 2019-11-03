@@ -140,7 +140,7 @@ public class UserConntroller {
     }
 
     @LogAnnotation(module = "绑定手机号")
-    @PostMapping(value = "/user/binding-phone")
+    @PostMapping(value = "/users/binding-phone")
     public void bindingPhone(String phone,String key,String code) throws IllegalAccessException {
         if(StringUtils.isBlank(phone)){
             throw new IllegalAccessException("手机号不能为空");

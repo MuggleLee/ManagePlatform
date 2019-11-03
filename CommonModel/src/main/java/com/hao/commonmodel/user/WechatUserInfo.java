@@ -1,6 +1,8 @@
 package com.hao.commonmodel.user;
 
+import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.Getter;
@@ -21,6 +23,7 @@ public class WechatUserInfo extends Model<WechatUserInfo> implements Serializabl
 
     private static final long serialVersionUID = 6750304307961875043L;
 
+    @TableId(type = IdType.AUTO)
     private Long id;
     private String openid;
     private String unionid;

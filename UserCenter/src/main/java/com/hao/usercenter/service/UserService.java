@@ -107,13 +107,35 @@ public class UserService {
         log.info("修改用户：{}", appUser);
     }
 
+    /**
+     * @param userName 用户名 or 微信openid or 手机号码
+     * @return
+     */
     @Transactional
     public LoginAppUser findByUserName(String userName) {
+        // 微信登录
+        WechatUserInfo wechatUserInfo = new WechatUserInfo().selectOne(new QueryWrapper<WechatUserInfo>().eq("openid", userName));
+        if (wechatUserInfo != null) {
+            UserCredential userCredential = new UserCredential().selectOne(new QueryWrapper<UserCredential>().eq("userName", userName));
+            Long userId = userCredential.getUserId();
+            AppUser appUser = new AppUser().selectOne(new QueryWrapper<AppUser>().eq("id", userId));
+            userName = appUser.getUsername();
+        }
+        // 手机号码登录
+        if (PhoneUtil.checkPhone(userName)) {
+            AppUser appUser = new AppUser().selectOne(new QueryWrapper<AppUser>().eq("phone", userName));
+            userName = appUser.getUsername();
+        }
+
         AppUser appUser = new AppUser().selectOne(new QueryWrapper<AppUser>().eq("username", userName));
         if (appUser != null) {
             LoginAppUser loginAppUser = new LoginAppUser();
             BeanUtils.copyProperties(appUser, loginAppUser);
-            Set<SysRole> sysRoles = findRolesByUserId(appUser.getId());
+            long roleId = 1;
+            if(appUser.getId()>1){
+                roleId = 2;
+            }
+            Set<SysRole> sysRoles = findRolesByUserId(roleId);
             //设置角色
             loginAppUser.setSysRoles(sysRoles);
             if (!CollectionUtils.isEmpty(sysRoles)) {

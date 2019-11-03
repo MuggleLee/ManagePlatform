@@ -1,8 +1,8 @@
 spring:
   redis:
-    host: mugglelee.top
-    port: 8083
-    password: 123456
+    host: redis
+    port: 6379
+    password: qwedsazxc123
     timeout: 10s
     lettuce:
       pool:
@@ -12,24 +12,24 @@ spring:
         max-wait: -1ms
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://mugglelee.top:12345/cloud_oauth?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    url: jdbc:mysql://mysql:3306/cloud_oauth?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
     username: root
-    password: 123456
+    password: qwedsazxc123
     hikari:
       minimum-idle: 5
       maximum-pool-size: 20
       connection-test-query: SELECT 1
   rabbitmq:
-    host: mugglelee.top
-    port: 8084
-    username: guest
-    password: 123456
+    host: rabbitmq
+    port: 5672
+    username: MuggleLee
+    password: 987654321lihao
     virtual-host: /
   mvc:
     servlet:
       load-on-startup: 1
   zipkin:
-    base-url: http://mugglelee.top:8090
+    base-url: http://zipkin:8090
     enabled: true
     sender:
       type: web

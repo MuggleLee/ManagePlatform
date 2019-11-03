@@ -7,7 +7,7 @@ import java.util.UUID;
 
 /**
  * 解决同一username每次登陆access_token都相同的问题,看下RedisTokenStore的方法getAccessToken便知<br>
- * 2018.08.04添加
+ * 2019.08.04添加
  */
 public class RandomAuthenticationKeyGenerator implements AuthenticationKeyGenerator {
 

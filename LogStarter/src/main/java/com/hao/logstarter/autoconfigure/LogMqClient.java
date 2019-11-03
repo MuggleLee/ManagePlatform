@@ -14,7 +14,7 @@ import java.util.concurrent.CompletableFuture;
 
 /**
  * 通过mq发送日志<br>
- * 2018.07.29添加,在LogAutoConfiguration中将该类声明成Bean，用时直接@Autowired即可
+ * 2019.07.29添加,在LogAutoConfiguration中将该类声明成Bean，用时直接@Autowired即可
  */
 public class LogMqClient {
 

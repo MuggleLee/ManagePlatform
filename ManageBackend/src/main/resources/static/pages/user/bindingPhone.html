@@ -49,6 +49,7 @@
 			</div>
 
 		</fieldset>
+		<span id="info" style="color: red"></span>
 	</form>
 </div>
 
@@ -161,7 +162,10 @@
 					refresh_token(); //刷新当前登录用户缓存
 					deleteCurrentTab();
                 });
-			}
+			},
+            error : function(xhr, textStatus, errorThrown) {
+                $("#info").html("绑定失败，手机号已被注册");
+            }
 		});
 	}
 	

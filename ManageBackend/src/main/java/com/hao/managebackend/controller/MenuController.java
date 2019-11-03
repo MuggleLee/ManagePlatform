@@ -31,6 +31,7 @@ public class MenuController {
      */
     @GetMapping("/me")
     public List<Menu> findMyMenu() {
+//        首页左侧查看列表权限
         LoginAppUser loginAppUser = AppUserUtils.getLoginAppUser();
         Set<SysRole> roles = loginAppUser.getSysRoles();
         if (CollectionUtils.isEmpty(roles)) {
@@ -54,7 +55,7 @@ public class MenuController {
                 .collect(Collectors.toList());
         if (!CollectionUtils.isEmpty(child)) {
             menu.setChild(child);
-            // 2018.06.09递归设置子元素，多级菜单支持
+            // 2019.08.09递归设置子元素，多级菜单支持
             child.parallelStream().forEach(c -> {
                 setChild(c, menus);
             });

@@ -1,3 +1,13 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://RegisterCenter:8086/eureka/
+    registry-fetch-interval-seconds: 5
+  instance:
+    lease-expiration-duration-in-seconds: 15
+    lease-renewal-interval-in-seconds: 5
+    prefer-ip-address: true
+    instance-id: ${spring.application.name}:${server.port}
 spring:
   application:
     name: ManageBackend
@@ -10,17 +20,6 @@ spring:
       fail-fast: true
 server:
   port: 8092
-eureka:
-  client:
-    serviceUrl:
-      defaultZone: http://106.13.213.64:8086/eureka/
-    registry-fetch-interval-seconds: 5
-  instance:
-    lease-expiration-duration-in-seconds: 15
-    lease-renewal-interval-in-seconds: 5
-    prefer-ip-address: true
-    instance-id: ${spring.application.name}:${server.port}
-    ip-address: mugglelee.top
 manasgement:
   endpoints:
     web:

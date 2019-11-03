@@ -27,7 +27,7 @@ public class LogAutoConfiguration {
 
     /**
      * 将LogMqClient声明成Bean
-     * 2018.07.29添加
+     * 2019.07.29添加
      */
     @Bean
     public LogMqClient logMqClient() {

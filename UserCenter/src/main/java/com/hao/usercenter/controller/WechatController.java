@@ -37,7 +37,6 @@ public class WechatController {
     public RedirectView toWechatAuthorize(@PathVariable String app, HttpServletRequest request,
                                           @RequestParam String toUrl) throws UnsupportedEncodingException {
         String url = wechatService.getWechatAuthorizeUrl(app, request, toUrl);
-        System.out.println(url);
         return new RedirectView(url);
     }
 
@@ -58,9 +57,7 @@ public class WechatController {
         }
 
         WechatUserInfo wechatUserInfo = wechatService.getWechatUserInfo(app, request, code, state);
-
         toUrl = wechatService.getToUrl(toUrl, wechatUserInfo);
-
         return new RedirectView(toUrl);
     }
 

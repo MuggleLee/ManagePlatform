@@ -55,8 +55,8 @@ public class UserDetailServiceImpl implements UserDetailsService {
             CredentialType credentialType = CredentialType.valueOf(params[1]);
             if (CredentialType.PHONE == credentialType) {// 短信登录
                 handlerPhoneSmsLogin(loginAppUser, params);
-            } else if (CredentialType.WECHAT_OPENID == credentialType) {// 微信登陆
-//                handlerWechatLogin(loginAppUser, params);
+            } else if (CredentialType.WECHAT_OPENID.equals(credentialType)) {// 微信登陆
+                handlerWechatLogin(loginAppUser, params);
             }
         }
 

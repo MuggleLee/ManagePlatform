@@ -50,22 +50,22 @@ $.ajaxSetup({
 });
 
 function buttonDel(data, permission, pers){
-	if(permission != ""){
-		if ($.inArray(permission, pers) < 0) {
-			return "";
-		}
-	}
+	// if(permission != ""){
+	// 	if ($.inArray(permission, pers) < 0) {
+	// 		return "";
+	// 	}
+	// }
 	
 	var btn = $("<button class='layui-btn layui-btn-xs' title='删除' onclick='del(\"" + data +"\")'><i class='layui-icon'>&#xe640;</i></button>");
 	return btn.prop("outerHTML");
 }
 
 function buttonEdit(href, permission, pers){
-	if(permission != ""){
-		if ($.inArray(permission, pers) < 0) {
-			return "";
-		}
-	}
+	// if(permission != ""){
+	// 	if ($.inArray(permission, pers) < 0) {
+	// 		return "";
+	// 	}
+	// }
 	
 	var btn = $("<button class='layui-btn layui-btn-xs' title='编辑' onclick='window.location=\"" + href +"\"'><i class='layui-icon'>&#xe642;</i></button>");
 	return btn.prop("outerHTML");

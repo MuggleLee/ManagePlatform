@@ -6,18 +6,18 @@ logging:
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://mugglelee.top:12345/cloud_backend?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
+    url: jdbc:mysql://mysql:3306/cloud_backend?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true&useSSL=false
     username: root
-    password: 123456
+    password: qwedsazxc123
     hikari:
       minimum-idle: 5
       maximum-pool-size: 20
       connection-test-query: SELECT 1
   rabbitmq:
-    host: 47.107.104.181
-    port: 8084
-    username: guest
-    password: 123456
+    host: rabbitmq
+    port: 5672
+    username: MuggleLee
+    password: 987654321lihao
     virtual-host: /
   mail:
     default-encoding: UTF-8
@@ -34,7 +34,7 @@ spring:
   aop:
     proxy-target-class: true
   zipkin:
-    base-url: http://mugglelee.top:8090
+    base-url: http://zipkin:8090
     enabled: true
     sender:
       type: web
@@ -47,5 +47,5 @@ spring:
 security:
   oauth2:
     resource:
-      user-info-uri: http://mugglelee.top:8093/api-o/user-me
+      user-info-uri: http://GatewayCenter:8093/api-o/user-me
       prefer-token-info: false
