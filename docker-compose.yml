@@ -1,15 +1,220 @@
-version: '2'
+version: '3'
 
 services:
-  zipkin:
-    image: openzipkin/zipkin
-    container_name: zipkin
-    environment:
-      - STORAGE_TYPE=mysql
-      - MYSQL_DB=cloud_zipkin
-      - MYSQL_USER=root
-      - MYSQL_PASS=123456
-      - MYSQL_HOST=47.107.104.181
-      - MYSQL_TCP_PORT=12345
+  redis:
+    image: redis:latest
+    container_name: redis
+    hostname: redis
     ports:
-      - 8090:9411
+      - 8083:6379
+    restart: always
+    command: --requirepass qwedsazxc123
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - E:\redis_data:/data
+  mysql:
+    image: mysql:5.6
+    container_name: mysql
+    hostname: mysql
+    ports:
+      - 12345:3306
+    restart: always
+    environment:
+      TZ: Asia/Shanghai
+      MYSQL_ROOT_PASSWORD: "qwedsazxc123"
+      MYSQL_USER: 'MuggleLee'
+      MYSQL_PASS: 'qwedsazxc123'
+    volumes:
+      - E:\mysql_data:/data
+    command:
+      --default-authentication-plugin=mysql_native_password
+  rabbitmq:
+    image: rabbitmq:3.7.7-management
+    ports:
+      - "8084:5672"
+      - "8085:15672"
+    container_name: rabbitmq
+    hostname: rabbitmq
+    restart: always
+    volumes:
+      - E:\rabbitmq_data:/data
+    environment:
+      - TZ=Asia/Shanghai
+      - RABBITMQ_DEFAULT_USER=MuggleLee
+      - RABBITMQ_DEFAULT_PASS=987654321lihao
+  RegisterCenter:
+    image: com.hao/register-center:1.0
+    ports:
+      - "8086:8086"
+    hostname: "RegisterCenter"
+    container_name: "RegisterCenter"
+    depends_on:
+      - redis
+      - mysql
+      - rabbitmq
+    restart: always
+    environment:
+      - TZ=Asia/Shanghai
+      - JAVA_OPTS='-Xmx32m'
+    volumes:
+      - E:\logs:/logs/
+  ConfigCenter:
+    image: com.hao/config-center:1.0
+    ports:
+      - "8081:8081"
+    hostname: "ConfigCenter"
+    container_name: "ConfigCenter"
+    restart: always
+#    links:
+#      - RegisterCenter
+    depends_on:
+      - RegisterCenter
+    volumes:
+      - E:\logs:/logs/
+    environment:
+      - TZ=Asia/Shanghai
+      - JAVA_OPTS='-Xmx128m'
+  ManageBackend:
+    image: com.hao/manage-backend:1.0
+    ports:
+      - "8092:8092"
+    container_name: ManageBackend
+    hostname: ManageBackend
+    depends_on:
+      - ConfigCenter
+      - rabbitmq
+#    links:
+#      - redis
+#      - rabbitmq
+#      - mysql
+#      - RegisterCenter
+#      - GatewayCenter
+    restart: always
+    volumes:
+      - E:\logs:/logs/
+    environment:
+      - TZ=Asia/Shanghai
+      - JAVA_OPTS='-Xmx512m'
+  LogCenter:
+    image: com.hao/log-center:1.0
+    ports:
+      - "8088:8088"
+    container_name: LogCenter
+    depends_on:
+      - ConfigCenter
+#    links:
+#      - RegisterCenter
+#      - redis
+#      - rabbitmq
+#      - mysql
+    restart: always
+    volumes:
+      - E:\logs:/logs/
+    environment:
+      - TZ=Asia/Shanghai
+      - JAVA_OPTS='-Xmx128m'
+  NotificationCenter:
+    image: com.hao/notification-center:1.0
+    ports:
+      - "8090:8090"
+    container_name: NotificationCenter
+    restart: always
+    depends_on:
+      - ConfigCenter
+#    links:
+#      - RegisterCenter
+#      - redis
+#      - rabbitmq
+#      - mysql
+    volumes:
+      - E:\logs:/logs/
+    environment:
+      - TZ=Asia/Shanghai
+      - JAVA_OPTS='-Xmx128m'
+  UserCenter:
+    image: com.hao/user-center:1.0
+    ports:
+      - "8091:8091"
+    container_name: UserCenter
+    restart: always
+    depends_on:
+      - NotificationCenter
+#    links:
+#      - RegisterCenter
+#      - redis
+#      - rabbitmq
+#      - mysql
+    volumes:
+      - E:\logs:/logs/
+    environment:
+      - TZ=Asia/Shanghai
+      - JAVA_OPTS='-Xmx512m'
+  OauthCenter:
+    image: com.hao/oauth-center:1.0
+    ports:
+      - "8082:8082"
+    container_name: OauthCenter
+    restart: always
+    depends_on:
+      - UserCenter
+#    links:
+#      - RegisterCenter
+#      - redis
+#      - rabbitmq
+#      - mysql
+    volumes:
+      - E:\logs:/logs/
+    environment:
+      - TZ=Asia/Shanghai
+      - JAVA_OPTS='-Xmx256m'
+  GatewayCenter:
+    image: com.hao/gateway-center:1.0
+    ports:
+      - "8093:8093"
+    container_name: "GatewayCenter"
+    hostname: "GatewayCenter"
+    restart: always
+    depends_on:
+      - ConfigCenter
+      - ManageBackend
+#    links:
+#      - RegisterCenter
+#      - mysql
+    volumes:
+      - E:\logs:/logs/
+    environment:
+      - TZ=Asia/Shanghai
+      - JAVA_OPTS='-Xmx128m'
+  FileCenter:
+    image: com.hao/file-center:1.0
+    ports:
+      - "8089:8089"
+    container_name: FileCenter
+    restart: always
+    depends_on:
+      - ConfigCenter
+#    links:
+#      - RegisterCenter
+#      - mysql
+    volumes:
+      - E:\logs:/logs/
+    environment:
+      - TZ=Asia/Shanghai
+      - JAVA_OPTS='-Xmx128m'
+  MonitorCenter:
+    image: com.hao/monitor-center:1.0
+    ports:
+      - "9001:9001"
+    container_name: MonitorCenter
+    restart: always
+    depends_on:
+      - RegisterCenter
+#    links:
+#      - RegisterCenter
+    environment:
+      - TZ=Asia/Shanghai
+      - JAVA_OPTS='-Xmx128m'
+    volumes:
+      - E:\logs:/logs/
+
