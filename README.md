@@ -113,5 +113,4 @@ Zipkin 是 Twitter 的一个开源项目，致力于手机分布式系统的链�
 
 #### 持久层框架：Mybatis-Plus
 项目一开始是使用 Mybatis 作为持久层框架，项目完成之后看到一些文章介绍 Mybatis 的升级版——Mybatis-Plus。
-打开Mybatis-Plus的官网[https://mybatis.plus/](https://mybatis.plus/)
-，最吸引眼球的就是其 slogan ——“为简化开发而生”。原先的 Mybatis 框架虽然能够很灵活的操作 SQL 语句，但弊端是要创建大量的 XML 文件，后期也不容易维护。而Mybatis-Plus不再需要创建XML文件，只需要定义一些接口，直接调用CRUD的方法，也很方便的使用注释自定义SQL语句，热加载、代码生成、分页、性能分析等功能一应俱全。不仅如此，Mybatis-Plus 还有函数式编程的特性，可以发现项目中大量的使用 Stream 流，拼装对象属性和CRUD不再是几十行冗长的代码，而是简简单单的几行甚至一行代码就能搞掂，大大提高了开发效率！更多 Mybatis-Plus 使用参考官方。（力推学习！）
+打开[Mybatis-Plus的官网](https://mybatis.plus/)，最吸引眼球的就是其 slogan ——“为简化开发而生”。原先的 Mybatis 框架虽然能够很灵活的操作 SQL 语句，但弊端是要创建大量的 XML 文件，后期也不容易维护。而Mybatis-Plus不再需要创建XML文件，只需要定义一些接口，直接调用CRUD的方法，也很方便的使用注释自定义SQL语句，热加载、代码生成、分页、性能分析等功能一应俱全。不仅如此，Mybatis-Plus 还有函数式编程的特性，可以发现项目中大量的使用 Stream 流，拼装对象属性和CRUD不再是几十行冗长的代码，而是简简单单的几行甚至一行代码就能搞掂，大大提高了开发效率！更多 Mybatis-Plus 使用参考官方。（力推学习！）
