@@ -2,7 +2,7 @@
 
 该项目是在个人 PC 运行，宽带是10M且有可能不稳定，项目也不一定长期启动...（出租房电费太贵了）。**正常运行时间为：9:00 ~ 20:00**<br>
 项目Demo：[http://mugglelee.nat300.top/api-b/login.html](http://mugglelee.nat300.top/api-b/login.html)
-项目Github地址：https://github.com/MuggleLee/ManagePlatform
+项目Github地址：https://github.com/MuggleLee/ManagePlatform </br>
 账号：Tourist  
 密码：123456  
 （此账号设置了权限，不能对显示的信息删除或者修改，如有疑问，可在评论区与我一起探讨）
