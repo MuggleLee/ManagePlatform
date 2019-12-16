@@ -99,8 +99,8 @@ Spring Boot Admin 是一个针对 Spring Boot 的 Actuator 接口进行 UI 美�
 Zipkin 是 Twitter 的一个开源项目，致力于手机分布式系统的链路数据，提供持久化策略，也提供UI页面方便开发人员查看接口，查询服务之间的调用链路信息。
 
 #### 消息队列：RabbitMQ
-常见的消息队列有 RabbitMQ、RocketMQ、ActiveMQ、Kafka。在实际项目中如何选型呢？这要根据各种 MQ 的特性和使用场景决定的。
-
+常见的消息队列有 RabbitMQ、RocketMQ、ActiveMQ、Kafka。在实际项目中如何选型呢？这要根据各种 MQ 的特性和使用场景决定。
+ActiveMQ维护越来越少，即使出问题也不容易解决；Kafka适合流计算和大数据场景，而且延迟相对RabbitMQ和RocketMQ较高，因此该项目不使用ActiveMQ和Kafka。至于RabbitMQ和RocketMQ的选型上，在本项目中我个人认为没什么差别，但RabbitMQ提供了非常完善便捷的后台管理界面，因此我选用RabbitMQ。
 
 ||RabbitMQ|RocketMQ|Kafka|ActiveMQ|
 |-|-|-|-|-|
